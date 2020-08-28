@@ -30,7 +30,7 @@
           </span>
         </div>
         <div
-          class="flex items-center px-8 py-2 space-x-3 font-sans text-xs text-gray-900 uppercase bg-gray-100 border-b-2 border-gray-300">
+          class="flex items-center px-8 py-2 space-x-3 font-sans text-xs text-gray-200 uppercase border-b-2 border-gray-300 bg-dd-lightblue">
           <span>{getProgramDate(start)} to {getProgramDate(end)}</span>
         </div>
         <div class="px-8 py-2 mt-1 leading-6">
