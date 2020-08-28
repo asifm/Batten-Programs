@@ -59,7 +59,7 @@
   }
 
   .btn-orange {
-    @apply bg-dd-orange text-dd-blue;
+    @apply bg-dd-orange text-white;
   }
 
   .btn-blue {
