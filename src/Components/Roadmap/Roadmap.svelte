@@ -63,7 +63,6 @@
             <strong>{getProgramDate(program.end)}</strong>
           </p>
           <p class="text-base">{program.description}</p>
-
         </div>
       </div>
     {:else}

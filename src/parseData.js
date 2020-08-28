@@ -37,7 +37,8 @@ function parseData() {
           theme: record.Theme,
           color: colorScheme[record.Theme],
           link: record.URL,
-          contact: stringifyArr(record, 'Name'),
+          // todo: create a proper contact field on airtable
+          // contact: stringifyArr(record, 'Name'),
           audience: stringifyArr(record, 'Audience'),
           mode: stringifyArr(record, 'Mode'),
           description: record.Description,

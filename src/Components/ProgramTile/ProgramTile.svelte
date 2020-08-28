@@ -40,10 +40,10 @@
             {audience}
           </p>
         </div>
-        <div
+        <button
           class="mb-6 -ml-1 text-xs bg-gray-300 border-gray-500 shadow-sm btn">
           <a href={link} target="_blank">Program Schedule and Other Details</a>
-        </div>
+        </button>
       </div>
 
     </div>

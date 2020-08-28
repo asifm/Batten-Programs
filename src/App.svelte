@@ -20,9 +20,9 @@
   <div class="container mx-auto rounded-lg">
     <div class="p-2 ml-10">
       <h2 class="title">
-        <span class="px-3 shadow-sm bg-learn">Learn</span>
-        <span class="px-3 rounded-sm bg-experience">Experience</span>
-        <span class="px-3 rounded-sm bg-connect">Connect</span>
+        <span class="px-3 rounded-md shadow-md bg-learn">Learn</span>
+        <span class="px-3 rounded-md shadow-md bg-experience">Experience</span>
+        <span class="px-3 rounded-md shadow-md bg-connect">Connect</span>
       </h2>
     </div>
     <Roadmap />

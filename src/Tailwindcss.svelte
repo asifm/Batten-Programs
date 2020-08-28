@@ -48,7 +48,8 @@
     @apply font-heading text-xl text-dd-lightblue my-2;
   }
   p {
-    @apply font-body;
+    font-family: 'franklin-gothic-urw';
+    font-weight: 300;
   }
 
   @tailwind components;
