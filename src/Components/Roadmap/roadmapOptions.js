@@ -102,7 +102,7 @@ export let roadmapOptions = {
     enabled: false,
     // useHTML: true,
     // headerFormat: '<small>{point.key} <b>{point.mode}</b></small>',
-    // pointFormat: '<p>For <b>{point.for} </p>',
+    // pointFormat: '<p>For <b>{point.audience} </p>',
     // style: {
     //   opacity: 1,
     //   zIndex: 100,

@@ -2,13 +2,13 @@
   import * as Highcharts from 'highcharts/highcharts-gantt';
   import { roadmapOptions } from './roadmapOptions';
   import { dataPromise } from '../../parseData';
-
+  import { getProgramDate } from '../../helpers';
   // let description: String = 'Click on a program name to learn more.';
   let program = {
-    dataready: false,
     name: '',
     description: '',
   };
+  let dataready = false;
   let backgroundClass = 'bg-gray-200';
 
   dataPromise.then(resolvedData => {
@@ -18,17 +18,13 @@
       events: {
         click: function () {
           program = this.options;
-          program.dataready = true;
+          dataready = true;
           backgroundClass = `bg-${this.options.theme.toLowerCase()}`;
         },
       },
     };
     Highcharts.ganttChart('roadmap-container', roadmapOptions);
   });
-
-  function getLongMonth(date) {
-    return Intl.DateTimeFormat('en-US', { month: 'short' }).format(date);
-  }
 </script>
 
 <style>
@@ -49,10 +45,10 @@
     <div id="roadmap-container" />
   </div>
   <div class="">
-    {#if program.dataready}
+    {#if dataready}
       <div id="description" class="m-3 rounded-md shadow {backgroundClass}">
         <div class="p-5 uppercase bg-gray-200 border-b border-white">
-          <h3 class="ml-2">{program.name}</h3>
+          <h4 class="ml-2">{program.name}</h4>
           <button type="button" class="bg-white shadow btn">
             <a href={program.link} target="_blank" class="href">
               See program page for details
@@ -62,13 +58,9 @@
         <div class="p-5">
           <p
             class="inline-block my-2 text-sm uppercase border-b-2 border-dd-lightblue">
-            <strong>
-              {getLongMonth(program.start)}, {new Date(program.start).getDate()}
-            </strong>
+            <strong>{getProgramDate(program.start)}</strong>
             to
-            <strong>
-              {getLongMonth(program.end)}, {new Date(program.end).getDate()}
-            </strong>
+            <strong>{getProgramDate(program.end)}</strong>
           </p>
           <p class="text-base">{program.description}</p>
 

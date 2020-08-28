@@ -1,5 +1,6 @@
 // import tailwind from '../tailwind.config.js';
 import newColors from '../colors';
+import { stringifyArr } from './helpers';
 
 const endpoint =
   'https://batten-programs.netlify.app/.netlify/functions/getdata?view=Web';
@@ -36,8 +37,8 @@ function parseData() {
           theme: record.Theme,
           color: colorScheme[record.Theme],
           link: record.URL,
-          contact: stringifyArr(record, 'Program Owners'),
-          for: stringifyArr(record, 'Audience'),
+          contact: stringifyArr(record, 'Name'),
+          audience: stringifyArr(record, 'Audience'),
           mode: stringifyArr(record, 'Mode'),
           description: record.Description,
         });
@@ -46,15 +47,4 @@ function parseData() {
   });
 
   return output;
-}
-
-function stringifyArr(obj, prop) {
-  let stringProp;
-  if (obj.hasOwnProperty(prop)) {
-    stringProp = obj[prop].join(', ');
-  } else {
-    // console.log(prop, 'not found in ', obj);
-    stringProp = '';
-  }
-  return stringProp;
 }
