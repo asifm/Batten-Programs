@@ -1,0 +1,6 @@
+[dev]
+  command = "npm run dev"
+  proxyPort = 5000
+[build]
+  command = "npm run build"
+  functions = "functions"
