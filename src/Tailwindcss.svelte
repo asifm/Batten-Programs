@@ -66,6 +66,10 @@
     @apply bg-dd-blue text-gray-100;
   }
 
+  .btn-gray {
+    @apply bg-gray-300 text-gray-900;
+  }
+
   .btn:hover {
     @apply bg-gray-500;
   }

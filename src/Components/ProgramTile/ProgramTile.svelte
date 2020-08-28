@@ -30,7 +30,7 @@
           </span>
         </div>
         <div
-          class="flex items-center px-8 py-2 space-x-3 font-sans text-sm text-gray-900 uppercase bg-gray-100 border-b-2 border-gray-300">
+          class="flex items-center px-8 py-2 space-x-3 font-sans text-xs text-gray-900 uppercase bg-gray-100 border-b-2 border-gray-300">
           <span>{getProgramDate(start)} to {getProgramDate(end)}</span>
         </div>
         <div class="px-8 py-2 mt-1 leading-6">
@@ -40,7 +40,8 @@
             {audience}
           </p>
         </div>
-        <div class="-ml-4 text-xs shadow-sm btn btn-orange">
+        <div
+          class="mb-6 -ml-1 text-xs bg-gray-300 border-gray-500 shadow-sm btn">
           <a href={link} target="_blank">Program Schedule and Other Details</a>
         </div>
       </div>
