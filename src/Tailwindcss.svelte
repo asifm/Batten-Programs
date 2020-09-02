@@ -34,8 +34,15 @@
     font-weight: 300;
     font-style: normal;
   }
-
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: 700;
+  }
   h1 {
+    font-weight: 700;
     @apply font-heading text-5xl my-4;
   }
   h2 {
@@ -45,7 +52,7 @@
     @apply font-heading text-2xl text-dd-blue my-2;
   }
   h4 {
-    @apply font-heading text-xl text-dd-lightblue my-2;
+    @apply font-heading text-xl text-dd-blue my-2;
   }
   p {
     font-family: 'franklin-gothic-urw';

@@ -9,7 +9,7 @@ export function stringifyArr(obj, prop) {
   return stringProp;
 }
 
-export function getProgramDate(epoch) {
+export function getFormattedDateFromEpoch(epoch) {
   let month = Intl.DateTimeFormat('en-US', { month: 'short' }).format(epoch);
   let date = new Date(epoch).getDate();
   return `${month} ${date}`;

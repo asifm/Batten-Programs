@@ -1,5 +1,5 @@
-const newColors = require('./colors.js');
-
+// const newColors = require('./colors.js');
+const { customColors } = require('./src/data/colors');
 const production = !process.env.ROLLUP_WATCH;
 
 module.exports = {
@@ -14,9 +14,9 @@ module.exports = {
   },
   theme: {
     extend: {
-      colors: newColors,
+      colors: customColors,
       fontFamily: {
-        heading: ['franklin-gothic-urw', 'serif'],
+        heading: ['franklin-gothic-urw', 'sans-serif'],
         body: ['georgia', 'serif'],
         sans: ['franklin-gothic-urw', 'sans-serif'],
       },
@@ -26,7 +26,10 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    boxShadow: ['group-focus'],
+  },
+  // Turning off because the plugin crashes the rollup-based build process
   // plugins: [require('@tailwindcss/ui')],
   future: {
     removeDeprecatedGapUtilities: true,

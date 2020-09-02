@@ -1,25 +1,20 @@
 <script>
   import * as Highcharts from 'highcharts/highcharts-gantt';
   import { roadmapOptions } from './roadmapOptions';
-  import { dataPromise } from '../../parseData';
-  import { getProgramDate } from '../../helpers';
-  // let description: String = 'Click on a program name to learn more.';
-  let program = {
-    name: '',
-    description: '',
-  };
+  import { dataPromise } from '../../data/parseAirtableData';
+  import { getFormattedDateFromEpoch } from '../../helpers';
+
+  let program;
   let dataready = false;
-  let backgroundClass = 'bg-gray-200';
 
   dataPromise.then(resolvedData => {
     // Inject data into series.data array's first (likely only) element
-    roadmapOptions.series[0]['data'] = resolvedData;
+    roadmapOptions.series[0]['data'] = resolvedData[0];
     roadmapOptions.plotOptions.series['point'] = {
       events: {
         click: function () {
           program = this.options;
           dataready = true;
-          backgroundClass = `bg-${this.options.theme.toLowerCase()}`;
         },
       },
     };
@@ -34,19 +29,18 @@
   #description {
     width: 300px;
   }
-  .highcharts-yaxis {
+  /* .highcharts-yaxis {
     display: none;
-  }
+  } */
 </style>
 
-<div class="flex flex-wrap parent-container">
-  <!-- Content goes here -->
-  <div>
+<div class="grid grid-cols-4 lg:grid-cols-5">
+  <div class="col-span-4">
     <div id="roadmap-container" />
   </div>
-  <div class="">
+  <div class="self-center col-span-1">
     {#if dataready}
-      <div id="description" class="m-3 rounded-md shadow {backgroundClass}">
+      <div id="description" class="m-3 rounded-md shadow bg-{program.theme}">
         <div class="p-5 uppercase bg-gray-200 border-b border-white">
           <h4 class="ml-2">{program.name}</h4>
           <button type="button" class="bg-white shadow btn">
@@ -57,17 +51,15 @@
         </div>
         <div class="p-5">
           <p
-            class="inline-block my-2 text-sm uppercase border-b-2 border-dd-lightblue">
-            <strong>{getProgramDate(program.start)}</strong>
-            to
-            <strong>{getProgramDate(program.end)}</strong>
+            class="inline-block my-2 text-sm uppercase border-b-2 border-dd-blue">
+            <strong>{getFormattedDateFromEpoch(program.start)}</strong> to <strong>{getFormattedDateFromEpoch(program.end)}</strong>
           </p>
           <p class="text-base">{program.description}</p>
         </div>
       </div>
     {:else}
-      <div class="p-2 m-2 bg-gray-200 rounded-md">
-        <h4>Click on a program title to learn more.</h4>
+      <div class="p-2 m-3 bg-gray-200 rounded-md">
+        <h6>To learn more, click on the bars on the chart.</h6>
       </div>
     {/if}
   </div>
