@@ -25,7 +25,7 @@
   </div>
   <div
     class="flex justify-between flex-1 text-white transition ease-in-out p-1
-      duration-750 hover:text-gray-900 hover:bg-white {completed ? 'bg-dd-blue-400' : 'bg-dd-blue'}">
+      cursor-pointer duration-750 hover:text-gray-900 hover:bg-white {completed ? 'bg-dd-blue-400' : 'bg-dd-blue'}">
     <div class="flex-1 px-4 py-2 leading-5">
       <h6 class="pb-1">{name}</h6>
 
