@@ -93,5 +93,7 @@
   /* My custom utilities: eg .text-shadow-sm */
   html {
     font-size: 15px;
+    /* To prevent page width resize when scroll bar disappears */
+    overflow-y: scroll;
   }
 </style>
