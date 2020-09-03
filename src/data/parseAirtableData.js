@@ -80,8 +80,9 @@ function parseData(data) {
       }
     }
   });
-  programTypesArr = [...new Set(outputArr.map(el => el.programType))];
+  programTypesArr = [...new Set(outputArr.map(el => el.programType))].sort();
 
+  // todo: make it more robust to account for correct sorting, year etc.
   programMonthsArr = [...new Set(outputArr.map(el => el.months).flat())];
 
   return [outputArr, programTypesArr, programMonthsArr];
