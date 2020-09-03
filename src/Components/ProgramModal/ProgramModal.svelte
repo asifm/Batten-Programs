@@ -21,10 +21,10 @@
     <div class="flex-1">
       <div class="flex items-center px-8 py-2 space-x-2 bg-{theme}">
         <h4 class="leading-6 text-gray-900">{name}</h4>
-        <span
+        <!-- <span
           class="flex-shrink-0 inline-block px-2 text-xs font-medium leading-4 text-teal-800 bg-teal-100 rounded-lg">
-          {theme}
-        </span>
+          placeholder
+        </span> -->
       </div>
       <div
         class="flex items-center px-8 py-2 space-x-3 font-sans text-xs text-gray-200 uppercase border-b-2 border-gray-300 bg-dd-blue">

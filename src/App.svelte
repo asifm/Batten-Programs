@@ -4,7 +4,7 @@
 
   import Tailwindcss from './Tailwindcss.svelte';
   // import Roadmap from './Components/Roadmap/Roadmap.svelte';
-  import ProgramTile from './Components/ProgramTile/ProgramTile.svelte';
+  import ProgramModal from './Components/ProgramModal/ProgramModal.svelte';
   import ProgramMonthTile from './Components/ProgramMonthTile/ProgramMonthTile.svelte';
   import { dataPromise } from './data/parseAirtableData';
 
@@ -196,11 +196,10 @@
             {#each selectedPrograms as programData}
               <li
                 class="flex flex-col rounded-md"
-                on:click={event => handleTileClick(event, programData)}
-                in:fly|local={{ y: 100, duration: 750 }}
-                out:fade|local>
+                in:fly={{ y: 100, duration: 500 }}
+                out:fade>
                 {#if programData.months.includes(month)}
-                  <ProgramMonthTile {...programData} />
+                  <ProgramMonthTile {...programData} on:click />
                 {/if}
               </li>
             {/each}
@@ -210,8 +209,8 @@
     {/if}
   </div>
 
-  <!-- New section: ProgramTiles -->
-  <div class="container mx-auto">
-    <!-- <ProgramTile {...programData} /> -->
+  <!-- New section: ProgramModal -->
+  <div class="container mx-auto" id="program-modal">
+    <!-- <ProgramModal {...programData} /> -->
   </div>
 </main>
