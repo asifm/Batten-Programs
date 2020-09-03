@@ -11,6 +11,9 @@ module.exports = {
       './src/**/*.js',
       './src/**/*.ts',
     ],
+    options: {
+      whitelist: ['bg-experience', 'bg-learn', 'bg-connect'],
+    },
   },
   theme: {
     extend: {
