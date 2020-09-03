@@ -24,8 +24,6 @@ const today = new Date();
 let startDate;
 let endDate;
 
-let apiRecords;
-
 let output;
 let programTypes;
 let programMonths;
@@ -33,13 +31,15 @@ let programMonths;
 export let dataPromise = fetch(endpoint)
   .then(response => response.json())
   .then(data => {
-    let apiRecords = data.records.map(record => record.fields);
-    [output, programTypes, programMonths] = parseData(apiRecords);
-
+    [output, programTypes, programMonths] = parseData(data);
     return [output, programTypes, programMonths];
   });
 
-function parseData(apiRecordsArr) {
+function parseData(data) {
+  let apiRecordsArr = data.records.map(record => {
+    record.fields['id'] = record.id;
+    return record.fields;
+  });
   let outputArr = [];
   let programTypesArr = [];
   let programMonthsArr = [];
@@ -54,6 +54,7 @@ function parseData(apiRecordsArr) {
         startDate = new Date(record.Start);
         endDate = new Date(record.End);
         outputArr.push({
+          id: record.id,
           // Some properties are required by highcharts gantt:
           // start (in epoch time), end (in epoch time), color, name
           alumni: record['Open to Alumni'],
@@ -82,7 +83,7 @@ function parseData(apiRecordsArr) {
   programTypesArr = [...new Set(outputArr.map(el => el.programType))];
 
   programMonthsArr = [...new Set(outputArr.map(el => el.months).flat())];
-  console.log(programMonthsArr);
+
   return [outputArr, programTypesArr, programMonthsArr];
 }
 
