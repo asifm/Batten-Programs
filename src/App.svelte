@@ -10,27 +10,34 @@
 
   let programs = [];
   $: selectedPrograms = programs;
+  let dataready = false;
 
   let programTypes = ['All Types'];
   let programMonths = [];
-  let dataready = false;
-  let hiddenDropdown = true;
+  let hiddenDropdownOptions = true;
   let alumniToggle = false;
+  let programTypeSelected = 'All Types';
 
   function handleDropdownButtonClick() {
-    hiddenDropdown = !hiddenDropdown;
+    hiddenDropdownOptions = !hiddenDropdownOptions;
   }
 
   function handleDropdownOptionClick(e) {
-    let optSelected = e.target.innerText;
-    hiddenDropdown = true;
-    if (optSelected === 'All Types') {
+    programTypeSelected = e.target.innerText;
+    hiddenDropdownOptions = true;
+    // reset alumniToggle if it's been set to true
+    alumniToggle = false;
+    if (programTypeSelected === 'All Types') {
       selectedPrograms = programs;
     } else {
-      selectedPrograms = programs.filter(el => el.programType == optSelected);
+      selectedPrograms = programs.filter(
+        el => el.programType == programTypeSelected,
+      );
     }
   }
   function handleAlumniToggle() {
+    // reset to 'All Types' whether alumniToggle changes to true or false
+    programTypeSelected = 'All Types';
     alumniToggle = !alumniToggle;
     if (alumniToggle) {
       selectedPrograms = programs.filter(el => el.alumni);
@@ -96,10 +103,10 @@
   <div class="container px-3 mx-auto">
     {#if dataready}
       <div class="grid grid-cols-2 gap-3 mb-10">
-        <!-- Dropdown button -->
-        <div class="relative col-span-1 text-left">
-          <div>
-            <span class="rounded-md shadow-sm">
+        <div class="flex flex-row gap-4">
+          <!-- Dropdown button -->
+          <div class="relative col-span-1 text-left">
+            <div class="rounded-md shadow-sm">
               <button
                 type="button"
                 on:click={handleDropdownButtonClick}
@@ -117,26 +124,31 @@
                     clip-rule="evenodd" />
                 </svg>
               </button>
-            </span>
-          </div>
-          <!-- Dropdown options -->
-          <div
-            class="absolute right-0 w-56 mt-2 origin-top-right rounded-md shadow-lg">
-            <div class="bg-white rounded-md">
-              <div
-                class="py-1 cursor-pointer"
-                role="menu"
-                hidden={hiddenDropdown}
-                on:click={handleDropdownOptionClick}
-                aria-orientation="vertical"
-                aria-labelledby="options-menu">
-                {#each programTypes as programType}
-                  <span
-                    class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-                    role="menuitem">{programType}</span>
-                {/each}
+            </div>
+
+            <!-- Dropdown options -->
+            <div
+              class="absolute right-0 w-56 mt-2 origin-top-right rounded-md shadow-lg">
+              <div class="bg-white rounded-md">
+                <div
+                  class="py-1 cursor-pointer"
+                  role="menu"
+                  hidden={hiddenDropdownOptions}
+                  on:click={handleDropdownOptionClick}
+                  aria-orientation="vertical"
+                  aria-labelledby="options-menu">
+                  {#each programTypes as programType}
+                    <span
+                      class="block px-4 py-2 text-sm leading-5 text-right text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                      role="menuitem">{programType}</span>
+                  {/each}
+                </div>
               </div>
             </div>
+          </div>
+          <div class="self-center px-1 border-b-4 border-gray-400">
+            <span
+              class="text-sm tracking-wider text-gray-700 uppercase">{programTypeSelected}</span>
           </div>
         </div>
 
