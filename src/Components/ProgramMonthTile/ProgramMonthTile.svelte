@@ -3,7 +3,6 @@
   export let name;
   // export let description;
   export let quickDescription;
-  export let link;
   export let theme;
   // export let contactnames;
   // export let contactemails
@@ -22,20 +21,18 @@
   <div
     class="flex pt-4 justify-center flex-shrink-0 w-8 font-light text-lg
       text-white leading-5 rounded-l-md bg-{theme}">
-    {programType[0]}
+    {#if programType}{programType[0]}{/if}
   </div>
   <div
     class="flex justify-between flex-1 text-white transition ease-in-out p-1
       duration-750 hover:text-gray-900 hover:bg-white {completed ? 'bg-dd-blue-400' : 'bg-dd-blue'}">
-    <a href={link} target="_blank" class="font-medium">
-      <div class="flex-1 px-4 py-2 leading-5">
-        <h6 class="pb-1">{name}</h6>
+    <div class="flex-1 px-4 py-2 leading-5">
+      <h6 class="pb-1">{name}</h6>
 
-        <p class="pb-1 text-sm">{quickDescription}</p>
-        <span class="text-xs tracking-wider text-gray-500 uppercase">
-          {programType}
-        </span>
-      </div>
-    </a>
+      <p class="pb-1 text-sm">{quickDescription}</p>
+      <span class="text-xs tracking-wider text-gray-500 uppercase">
+        {programType}
+      </span>
+    </div>
   </div>
 </div>
