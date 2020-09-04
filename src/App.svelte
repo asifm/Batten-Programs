@@ -143,7 +143,7 @@
 
             <!-- Dropdown options -->
             <div
-              class="absolute right-0 w-56 mt-2 origin-top-right rounded-md shadow-lg">
+              class="absolute right-0 mt-2 origin-top-right rounded-md shadow-lg">
               <div class="bg-white rounded-md">
                 <div
                   class="py-1 cursor-pointer"
