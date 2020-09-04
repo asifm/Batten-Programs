@@ -17,15 +17,18 @@
   let hiddenDropdownOptions = true;
   let alumniToggle = false;
   let programTypeSelected = 'All Types';
-
+  let tiles;
   let modalHidden = true;
   $: modalData = {};
   function handleClick(programData) {
     modalData = programData;
     modalHidden = false;
+    tiles = document.getElementById('program-tiles');
+    tiles.classList.add('opacity-50');
   }
   function handleCloseModal(e) {
     modalHidden = true;
+    tiles.classList.remove('opacity-50');
   }
   function handleDropdownButtonClick() {
     hiddenDropdownOptions = !hiddenDropdownOptions;
@@ -106,7 +109,7 @@
   <div class="mb-3 leading-tight text-center shadow bg-tangerine text-dd-blue">
     <div class="container px-4 py-1 mx-auto">
       <h2>Batten Institute Programs</h2>
-      <h3 class="">Fall 2020–21</h3>
+      <h3>Fall 2020–21</h3>
     </div>
   </div>
 
@@ -186,7 +189,9 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:gap-5 sm:grid-cols-2 lg:grid-cols-5">
+      <div
+        class="grid grid-cols-1 transition-opacity duration-500 ease-in-out sm:gap-5 sm:grid-cols-2 lg:grid-cols-5"
+        id="program-tiles">
         {#each programMonths as month}
           <div class="col-span-1">
             <div
