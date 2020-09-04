@@ -194,8 +194,7 @@
         id="program-tiles">
         {#each programMonths as month}
           <div class="col-span-1">
-            <div
-              class="p-3 font-bold tracking-widest uppercase bg-gray-100 rounded-md text-dd-blue">
+            <div class="p-3 font-bold tracking-widest uppercase text-dd-blue">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
