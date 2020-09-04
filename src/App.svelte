@@ -227,8 +227,8 @@
       {#if !modalHidden}
         <div
           id="program-modal"
-          transition:slide
-          class="fixed z-10 w-3/4 transform -translate-x-1/2 -translate-y-1/2 border-4 shadow-lg md:w-1/2 lg:w-1/3 xl:w-1/4 border-dd-blue">
+          transition:slide={{ y: -100 }}
+          class="fixed z-10 w-3/4 transform -translate-x-1/2 -translate-y-1/2 border-2 rounded-sm shadow-lg md:w-1/2 lg:w-1/3 xl:w-1/4 border-dd-blue">
           <ProgramModal {...modalData} on:closeModal={handleCloseModal} />
         </div>
       {/if}
