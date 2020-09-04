@@ -24,7 +24,7 @@
   <div
     class="flex pt-4 justify-center flex-shrink-0 w-8 font-light text-lg
       text-white leading-5 rounded-l-md bg-{theme}">
-    {#if programType}{programType[0]}{/if}
+    <!-- {#if programType}{programType[0]}{/if} -->
   </div>
   <div
     class="flex justify-between flex-1 text-white transition ease-in-out p-1
@@ -33,7 +33,7 @@
       <h6 class="pb-1">{name}</h6>
 
       <p class="pb-1 text-sm">{quickDescription}</p>
-      <span class="text-xs tracking-wider text-gray-500 uppercase">
+      <span class="text-xs tracking-wider text-gray-200 uppercase">
         {programType}
       </span>
     </div>

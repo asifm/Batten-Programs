@@ -28,7 +28,7 @@
   <div class="relative flex-1">
     <button
       id="close-button"
-      class="absolute top-0 right-0 w-6 h-6 bg-gray-200 shadow-sm"
+      class="absolute top-0 right-0 bg-gray-200 shadow-xs w-7 h-7"
       on:click={() => dispatch('closeModal')}>X</button>
     <div class="flex items-center px-8 py-2 space-x-2 bg-{theme}">
       <h4 class="leading-6 text-gray-900">{name}</h4>
