@@ -3,34 +3,39 @@
   export let description;
   export let link;
   export let theme;
+  export let programType;
   // export let contactnames;
   // export let contactemails
   export let audience;
   // export let start;
   // export let end;
 
-  import { onMount, onDestroy } from 'svelte';
+  import { onMount, onDestroy, createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
 
   onDestroy(() => {
-    console.log('the component is being destroyed', this);
+    console.log('Modal is being destroyed');
   });
   onMount(() => {
-    console.log('the component is being mounted', this);
+    console.log('Modal is being mounted');
   });
-  import { getFormattedDateFromEpoch } from '../../helpers';
+  // import { getFormattedDateFromEpoch } from '../../helpers';
 </script>
 
-<style>
-
-</style>
-
-<section class="flex items-center justify-between space-x-6 bg-white">
-  <div class="flex-1">
+<section
+  class="flex items-center justify-between space-x-6 bg-white program-modal">
+  <div class="relative flex-1">
+    <button
+      id="close-button"
+      class="absolute top-0 right-0 w-6 h-6 bg-gray-200 shadow-sm"
+      on:click={() => dispatch('closeModal')}>X</button>
     <div class="flex items-center px-8 py-2 space-x-2 bg-{theme}">
       <h4 class="leading-6 text-gray-900">{name}</h4>
+
       <span
         class="flex-shrink-0 inline-block px-2 text-xs font-medium leading-4 text-teal-800 bg-teal-100 rounded-lg">
-        placeholder
+        {programType}
       </span>
     </div>
     <div

@@ -1,11 +1,11 @@
 <script>
   // todo: add svelte animation/transition when dom elements appear/disappear
-  import { fade, fly } from 'svelte/transition';
+  import { fade, fly, slide } from 'svelte/transition';
 
   import Tailwindcss from './Tailwindcss.svelte';
   // import Roadmap from './Components/Roadmap/Roadmap.svelte';
   import ProgramModal from './Components/ProgramModal/ProgramModal.svelte';
-  import ProgramMonthTile from './Components/ProgramMonthTile/ProgramMonthTile.svelte';
+  import ProgramTile from './Components/ProgramTile/ProgramTile.svelte';
   import { dataPromise } from './data/parseAirtableData';
 
   let programs = [];
@@ -18,6 +18,15 @@
   let alumniToggle = false;
   let programTypeSelected = 'All Types';
 
+  let modalHidden = true;
+  $: modalData = {};
+  function handleClick(programData) {
+    modalData = programData;
+    modalHidden = false;
+  }
+  function handleCloseModal(e) {
+    modalHidden = true;
+  }
   function handleDropdownButtonClick() {
     hiddenDropdownOptions = !hiddenDropdownOptions;
   }
@@ -44,10 +53,6 @@
     } else {
       selectedPrograms = programs;
     }
-  }
-
-  function handleTileClick(e, programData) {
-    console.log(e, programData);
   }
 
   dataPromise.then(resolvedData => {
@@ -88,6 +93,13 @@
   });
 </script>
 
+<style>
+  #program-modal {
+    top: 50%;
+    left: 50%;
+  }
+</style>
+
 <Tailwindcss />
 <main>
   <!-- header -->
@@ -98,7 +110,7 @@
     </div>
   </div>
 
-  <!-- New section: ProgramMonthTiles -->
+  <!-- New section: ProgramTiles -->
 
   <div class="container px-3 mx-auto">
     {#if dataready}
@@ -199,13 +211,23 @@
                 in:fly={{ y: 100, duration: 500 }}
                 out:fade>
                 {#if programData.months.includes(month)}
-                  <ProgramMonthTile {...programData} on:click />
+                  <ProgramTile
+                    {...programData}
+                    on:click={() => handleClick(programData)} />
                 {/if}
               </li>
             {/each}
           </div>
         {/each}
       </div>
+      {#if !modalHidden}
+        <div
+          id="program-modal"
+          transition:slide
+          class="fixed z-10 w-3/4 transform -translate-x-1/2 -translate-y-1/2 border-4 shadow-lg md:w-1/2 lg:w-1/3 xl:w-1/4 border-dd-blue">
+          <ProgramModal {...modalData} on:closeModal={handleCloseModal} />
+        </div>
+      {/if}
     {/if}
   </div>
 </main>
