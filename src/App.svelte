@@ -208,9 +208,4 @@
       </div>
     {/if}
   </div>
-
-  <!-- New section: ProgramModal -->
-  <div class="container mx-auto" id="program-modal">
-    <!-- <ProgramModal {...programData} /> -->
-  </div>
 </main>
