@@ -1,30 +1,21 @@
-// Darden Blue and Darden Orange shades/tints denerated here: https://javisperez.github.io/tailwindcolorshades/#/?cloud-burst=232d4b&Mango%20Tango=e57200&tv=1
-const customColors = {
+exports.customColors = {
+  // Darden Blue and Darden Orange shades/tints denerated here: https://javisperez.github.io/tailwindcolorshades/#/?cloud-burst=232d4b&Mango%20Tango=e57200&tv=1
   // https://www.htmlcsscolor.com/hex/232d4b
   'dd-blue': {
-    50: '#F4F5F6',
     100: '#E9EAED',
     200: '#C8CBD2',
     300: '#A7ABB7',
     400: '#656C81',
     default: '#232D4B',
-    600: '#202944',
-    700: '#151B2D',
-    800: '#101422',
-    900: '#0B0E17',
   },
   // https://www.htmlcsscolor.com/hex/e57200
   'dd-orange': {
-    50: '#FEF8F2',
     100: '#FCF1E6',
     200: '#F9DCBF',
     300: '#F5C799',
     400: '#ED9C4D',
     default: '#E57200',
     600: '#CE6700',
-    700: '#894400',
-    800: '#673300',
-    900: '#452200',
   },
   // https://www.htmlcsscolor.com/hex/84bd00
   citrus: '#9dd619',
@@ -46,12 +37,18 @@ const customColors = {
   connect: '#cdea89', // light citrus
 };
 
-exports.customColors = customColors;
+exports.palette = [
+  '#80deea',
+  '#ffab91',
+  '#ce93d8',
+  '#90a4ae',
+  '#f2cd00',
+  '#ed9c4d',
+  '#9dd619',
+  '#a5d6a7',
+  '#afb42b',
+];
 
-// Previous colors. Clean up later.
-// module.exports = {
-//   'dd-lightblue': 'rgba(32, 41, 70, 1)',
 //   learn: 'rgba(229, 114, 0, 0.8)',
 //   experience: 'rgba(242, 205, 0, 0.8)',
 //   connect: 'rgba(157, 214, 25, 0.8)',
-// };

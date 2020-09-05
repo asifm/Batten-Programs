@@ -71,15 +71,15 @@
   }
 
   .btn-blue {
-    @apply bg-dd-blue text-gray-100;
+    @apply bg-dd-blue text-cool-gray-100;
   }
 
   .btn-gray {
-    @apply bg-gray-300 text-gray-900;
+    @apply bg-cool-gray-300 text-cool-gray-900;
   }
 
   .btn:hover {
-    @apply bg-gray-500;
+    @apply bg-cool-gray-500;
   }
 
   .btn:focus {

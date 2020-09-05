@@ -71,6 +71,7 @@
         months,
         name,
         programType,
+        programTypeColor,
         quickDescription,
         start,
         theme,
@@ -81,10 +82,10 @@
         end,
         completed,
         link,
-        link,
         months,
         name,
         programType,
+        programTypeColor,
         quickDescription,
         start,
         theme,
@@ -97,6 +98,7 @@
 </script>
 
 <style>
+  /* To center the program modal */
   #program-modal {
     top: 50%;
     left: 50%;
@@ -104,11 +106,12 @@
 </style>
 
 <Tailwindcss />
+
 <main>
   <!-- header -->
   <div class="mb-3 leading-tight text-center shadow bg-tangerine text-dd-blue">
     <div class="container px-4 py-1 mx-auto">
-      <h2>Batten Institute Programs</h2>
+      <h2 class="font-black">Batten Institute Programs</h2>
       <h3>Fall 2020–21</h3>
     </div>
   </div>
@@ -125,7 +128,7 @@
               <button
                 type="button"
                 on:click={handleDropdownButtonClick}
-                class="inline-flex px-4 py-2 font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                class="inline-flex px-4 py-2 font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md text-cool-gray-700 border-cool-gray-300 hover:text-cool-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-cool-gray-50 active:text-cool-gray-800"
                 id="options-menu"
                 aria-haspopup="true"
                 aria-expanded="true">
@@ -154,30 +157,30 @@
                   aria-labelledby="options-menu">
                   {#each programTypes as programType}
                     <span
-                      class="block px-4 py-2 text-sm leading-5 text-right text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                      class="block px-4 py-2 text-sm leading-5 text-right text-cool-gray-700 hover:bg-cool-gray-100 hover:text-cool-gray-900 focus:outline-none focus:bg-cool-gray-100 focus:text-cool-gray-900"
                       role="menuitem">{programType}</span>
                   {/each}
                 </div>
               </div>
             </div>
           </div>
-          <div class="self-center px-1 border-b-4 border-gray-400">
+          <div class="self-center px-1 border-b-4 border-cool-gray-400">
             <span
-              class="text-sm tracking-wider text-gray-700 uppercase">{programTypeSelected}</span>
+              class="text-sm tracking-wider uppercase text-cool-gray-700">{programTypeSelected}</span>
           </div>
         </div>
 
         <!-- Toggle -->
 
         <div class="col-span-1 text-right">
-          <span class="p-1 text-sm text-gray-700 rounded">Open to alumni</span>
+          <span class="p-1 text-sm rounded text-cool-gray-700">Open to alumni</span>
           <span
             role="checkbox"
             tabindex="0"
             aria-checked="false"
             on:click={handleAlumniToggle}
             class="align-middle relative inline-flex flex-shrink-0 h-6
-              transition-colors duration-200 ease-in-out {alumniToggle ? 'bg-dd-blue-600' : 'bg-gray-200'}
+              transition-colors duration-200 ease-in-out {alumniToggle ? 'bg-dd-blue-600' : 'bg-cool-gray-200'}
               border-2 border-transparent rounded-full cursor-pointer w-16 focus:outline-none
               focus:shadow-outline">
             <span

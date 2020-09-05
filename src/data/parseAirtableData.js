@@ -73,6 +73,7 @@ function parseData(data) {
           name: record['Program Name'],
           //  todo: allow multiple select
           programType: record['Program Type'],
+          programTypeColor: record['Program Type Color'],
           quickDescription: record['Quick Description'],
           start: startDate.getTime(),
           theme: record.Theme,
