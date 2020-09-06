@@ -1,41 +1,48 @@
 <script>
-  import { fade, fly, slide } from 'svelte/transition';
-  import { onMount } from 'svelte';
-  import ProgramModal from '../ProgramModal/ProgramModal.svelte';
   // todo: find appropriate icons for the program types
   export let name;
+  export let quickDescription;
+  export let programTypeColor;
+  export let programType;
+
   // export let description;
   // export let link;
   // export let theme;
-  export let programTypeColor;
   // export let audience;
   // export let start;
   // export let end;
-
-  export let quickDescription;
   // export let contactnames;
   // export let contactemails
   // export let months;
-  export let completed;
+  // export let completed;
   // export let alumni;
-  export let programType;
 </script>
 
-<div class="flex mb-2 program-tile" on:click>
+<style>
+  .program-tile:hover {
+    /* A tile when scaled up on hover needs to be over the adjacent tiles */
+    z-index: 20;
+  }
+</style>
+
+<div
+  class="flex mb-2 transition duration-500 ease-in-out transform program-tile hover:scale-110 hover:translate-x-3"
+  on:click>
   <div
-    class="flex pt-4 justify-center flex-shrink-0 w-8 font-light text-lg
-      text-white leading-5 rounded-l-md"
+    class="flex justify-center flex-shrink-0 w-8 pt-4 leading-5 opacity-50 rounded-l-md"
     style="background-color: {programTypeColor}">
     <!-- {#if programType}{programType[0]}{/if} -->
+    <!-- Add icon -->
   </div>
   <div
-    class="flex justify-between flex-1 text-white transition ease-in-out p-1
-      cursor-pointer duration-750 hover:text-cool-gray-900 hover:bg-white {completed ? 'bg-dd-blue-400' : 'bg-dd-blue'}">
+    class="flex justify-between flex-1 p-1 text-black cursor-pointer rounded-r-md"
+    style="background-color: {programTypeColor}">
+    <!-- add something later to indicate completed or not. e.g. {completed ? 'opacity-75' : 'opacity-100'} -->
     <div class="flex-1 px-4 py-2 leading-5">
       <h6 class="pb-1">{name}</h6>
 
-      <p class="pb-1 text-sm">{quickDescription}</p>
-      <span class="text-xs tracking-wider text-cool-gray-200 uppercase">
+      <p class="pb-2 text-base">{quickDescription}</p>
+      <span class="text-xs tracking-wider uppercase text-cool-gray-800">
         {programType}
       </span>
     </div>
