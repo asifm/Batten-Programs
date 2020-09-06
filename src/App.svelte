@@ -221,7 +221,7 @@
               {month}
             </div>
             {#each selectedPrograms as programData}
-              <li
+              <div
                 class="flex flex-col rounded-md"
                 transition:fly={{ y: 100, duration: 250 }}>
                 {#if programData.months.includes(month)}
@@ -229,7 +229,7 @@
                     {...programData}
                     on:click={() => handleClickOnTile(programData)} />
                 {/if}
-              </li>
+              </div>
             {/each}
           </div>
         {/each}
