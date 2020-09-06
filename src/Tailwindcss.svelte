@@ -86,9 +86,7 @@
     @apply border-dd-blue;
   }
 
-  /* Start purging... */
   @tailwind utilities;
-  /* Stop purging. */
 
   /* My custom utilities: eg .text-shadow-sm */
   html {

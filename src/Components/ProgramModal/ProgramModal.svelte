@@ -31,8 +31,20 @@
       style="background-color: {programTypeColor}">
       <button
         id="close-button"
-        class="absolute top-0 right-0 w-8 h-8 bg-white rounded hover:bg-dd-blue-400 hover:shadow-sm"
-        on:click={() => dispatch('closeModal')}>X</button>
+        on:click={() => dispatch('closeModal')}
+        class="absolute top-0 right-0 w-8 m-1 opacity-50 hover:opacity-100">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
       <h4 class="leading-6 text-cool-gray-900">{name}</h4>
       <span
         class="flex-shrink-0 inline-block px-2 py-1 m-2 text-xs font-medium bg-opacity-75 rounded bg-cool-gray-200 text-dd-blue">
@@ -46,7 +58,7 @@
         placeholder
       </span>
     </div>
-    <div class="px-6 py-2 space-y-2 leading-6 text-cool-gray-800">
+    <div class="px-8 py-2 space-y-2 text-lg leading-6 text-cool-gray-800">
       <p>{description}</p>
       <!-- todo: for demo; remove later -->
       <p>
