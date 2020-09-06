@@ -30,11 +30,12 @@ module.exports = {
     },
   },
   variants: {
-    boxShadow: ['group-focus'],
+    boxShadow: ['group-focus', 'hover'],
   },
   // Turning off because the plugin crashes the rollup-based build process
   plugins: [require('@tailwindcss/ui')],
   future: {
     removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
   },
 };
