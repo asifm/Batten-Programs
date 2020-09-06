@@ -2,7 +2,7 @@
   export let name;
   export let description;
   export let link;
-  export let theme;
+  // export let theme;
   export let programType;
   export let programTypeColor;
   // export let contactnames;

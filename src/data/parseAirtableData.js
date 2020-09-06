@@ -82,7 +82,6 @@ function parseData(data) {
     }
   });
   programTypesArr = [...new Set(outputArr.map(el => el.programType).flat())];
-  console.log('programTypesArr', programTypesArr);
   // todo: make it more robust to account for correct sorting, year etc.
   programMonthsArr = [...new Set(outputArr.map(el => el.months).flat())];
 
