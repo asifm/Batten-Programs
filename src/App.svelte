@@ -14,16 +14,18 @@
 
   let programTypes = ['All Types'];
   let programMonths = [];
+
   let hiddenDropdownOptions = true;
   let alumniToggle = false;
   let programTypeSelected = 'All Types';
   let tiles;
   let modalHidden = true;
   $: modalData = {};
-  function handleClick(programData) {
+
+  function handleClickOnTile(programData) {
     modalData = programData;
     modalHidden = false;
-    tiles = document.getElementById('program-tiles');
+    tiles = document.getElementById('program-tiles-container');
     tiles.classList.add('opacity-50');
   }
   function handleCloseModal(e) {
@@ -50,7 +52,12 @@
   function handleAlumniToggle() {
     // reset to 'All Types' whether alumniToggle changes to true or false
     programTypeSelected = 'All Types';
+
+    // Close dropdown options if open
+    hiddenDropdownOptions = true;
+
     alumniToggle = !alumniToggle;
+
     if (alumniToggle) {
       selectedPrograms = programs.filter(el => el.alumni);
     } else {
@@ -111,7 +118,7 @@
   <!-- header -->
   <div class="mb-3 leading-tight text-center shadow bg-tangerine text-dd-blue">
     <div class="container px-4 py-1 mx-auto">
-      <h2 class="font-black">Batten Institute Programs</h2>
+      <h2 class="font-black tracking-wide">Batten Institute Programs</h2>
       <h3>Fall 2020–21</h3>
     </div>
   </div>
@@ -121,7 +128,8 @@
   <div class="container px-3 mx-auto">
     {#if dataready}
       <div class="grid grid-cols-2 gap-3 mb-10">
-        <div class="flex flex-row gap-4">
+        <!-- Dropdown -->
+        <div class="z-30 flex flex-row gap-4" id="dropdown-container">
           <!-- Dropdown button -->
           <div class="relative col-span-1 text-left">
             <div class="rounded-md shadow-sm">
@@ -180,7 +188,7 @@
             aria-checked="false"
             on:click={handleAlumniToggle}
             class="align-middle relative inline-flex flex-shrink-0 h-6
-              transition-colors duration-200 ease-in-out {alumniToggle ? 'bg-dd-blue-600' : 'bg-cool-gray-200'}
+              transition-colors duration-200 ease-in-out {alumniToggle ? 'bg-dd-blue-300' : 'bg-cool-gray-200'}
               border-2 border-transparent rounded-full cursor-pointer w-16 focus:outline-none
               focus:shadow-outline">
             <span
@@ -193,10 +201,10 @@
       </div>
 
       <div
-        class="grid grid-cols-1 transition-opacity duration-500 ease-in-out sm:gap-5 sm:grid-cols-2 lg:grid-cols-5"
-        id="program-tiles">
+        class="grid grid-cols-1 sm:gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+        id="program-tiles-container">
         {#each programMonths as month}
-          <div class="col-span-1">
+          <div class="col-span-1" transition:fly>
             <div class="p-3 font-bold tracking-widest uppercase text-dd-blue">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -215,12 +223,11 @@
             {#each selectedPrograms as programData}
               <li
                 class="flex flex-col rounded-md"
-                in:fly={{ y: 100, duration: 500 }}
-                out:fade>
+                transition:fly={{ y: 100, duration: 250 }}>
                 {#if programData.months.includes(month)}
                   <ProgramTile
                     {...programData}
-                    on:click={() => handleClick(programData)} />
+                    on:click={() => handleClickOnTile(programData)} />
                 {/if}
               </li>
             {/each}
@@ -231,7 +238,7 @@
         <div
           id="program-modal"
           transition:slide={{ y: -100 }}
-          class="fixed z-10 w-3/4 transform -translate-x-1/2 -translate-y-1/2 border-2 rounded-sm shadow-lg md:w-1/2 lg:w-1/3 xl:w-1/4 border-dd-blue">
+          class="fixed z-40 w-3/4 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-lg md:w-1/2 lg:w-1/3">
           <ProgramModal {...modalData} on:closeModal={handleCloseModal} />
         </div>
       {/if}
