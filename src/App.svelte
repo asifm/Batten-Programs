@@ -186,6 +186,7 @@
             role="checkbox"
             tabindex="0"
             aria-checked="false"
+            aria-label="Open to alumni"
             on:click={handleAlumniToggle}
             class="align-middle relative inline-flex flex-shrink-0 h-6
               transition-colors duration-200 ease-in-out {alumniToggle ? 'bg-dd-blue-300' : 'bg-cool-gray-200'}

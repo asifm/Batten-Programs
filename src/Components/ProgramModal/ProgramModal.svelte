@@ -47,12 +47,14 @@
       </button>
       <h4 class="leading-6 text-cool-gray-900">{name}</h4>
       <span
-        class="flex-shrink-0 inline-block px-2 py-1 m-2 text-xs font-medium bg-opacity-75 rounded bg-cool-gray-200 text-dd-blue">
+        class="flex-shrink-0 inline-block px-2 py-1 m-2 text-xs font-medium
+          bg-opacity-75 rounded bg-cool-gray-200 text-dd-blue">
         {programType}
       </span>
     </div>
     <div
-      class="flex items-center px-8 py-2 space-x-3 font-sans text-xs uppercase text-cool-gray-200 bg-dd-blue">
+      class="flex items-center px-8 py-2 space-x-3 font-sans text-xs uppercase
+        text-cool-gray-200 bg-dd-blue">
       <span>
         <!-- {getFormattedDateFromEpoch(start)} to {getFormattedDateFromEpoch(end)} -->
         placeholder
@@ -73,7 +75,8 @@
       </p>
     </div>
     <button
-      class="mb-6 -ml-1 text-xs shadow-sm bg-cool-gray-200 border-cool-gray-800 btn">
+      class="mb-6 -ml-1 text-xs shadow-sm bg-cool-gray-200 border-cool-gray-800
+        btn">
       <a href={link} target="_blank">Program Schedule and Other Details</a>
     </button>
   </div>
