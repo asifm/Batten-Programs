@@ -57,8 +57,13 @@
   p {
     font-family: 'franklin-gothic-urw';
     font-weight: 300;
+    @apply text-base;
   }
-
+  @media (max-width: 640px) {
+    p {
+      @apply text-sm;
+    }
+  }
   @tailwind components;
   /* My custom component styles: eg .btn .card */
 

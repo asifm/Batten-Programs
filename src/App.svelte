@@ -180,7 +180,7 @@
 
         <!-- Toggle -->
 
-        <div class="col-span-1 text-right">
+        <div class="col-span-1 text-right" id="alumnitoggle-container">
           <span class="p-1 text-sm rounded text-cool-gray-700">Open to alumni</span>
           <span
             role="checkbox"
@@ -239,7 +239,7 @@
         <div
           id="program-modal"
           transition:slide={{ y: -100 }}
-          class="fixed z-40 w-3/4 transform -translate-x-1/2 -translate-y-1/2 rounded shadow-lg md:w-1/2 lg:w-1/3">
+          class="fixed z-40 w-11/12 max-w-full max-h-full overflow-auto transform -translate-x-1/2 -translate-y-1/2 rounded shadow-lg sm:w-4/5 md:w-1/2 lg:w-1/3">
           <ProgramModal {...modalData} on:closeModal={handleCloseModal} />
         </div>
       {/if}
