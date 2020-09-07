@@ -3,7 +3,6 @@
   import { fade, fly, slide } from 'svelte/transition';
 
   import Tailwindcss from './Tailwindcss.svelte';
-  // import Roadmap from './Components/Roadmap/Roadmap.svelte';
   import ProgramModal from './Components/ProgramModal/ProgramModal.svelte';
   import ProgramTile from './Components/ProgramTile/ProgramTile.svelte';
   import { dataPromise } from './data/parseAirtableData';
