@@ -60,7 +60,6 @@
     </div>
     <div class="px-6 py-2 space-y-2 text-sm bg-white lg:text-lg text-cool-gray-800">
       <p>{description}</p>
-      <!-- todo: for demo; remove later -->
       <p>
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
         ut aliquip ex ea commodo consequat. Duis aute irure dolor in

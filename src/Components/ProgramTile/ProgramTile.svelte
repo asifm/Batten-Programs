@@ -1,5 +1,5 @@
 <script>
-  // todo: find appropriate icons for the program types
+  // todo: find and add appropriate icons for the program types
   export let name;
   export let quickDescription;
   export let programTypeColor;

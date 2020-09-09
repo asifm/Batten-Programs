@@ -1,4 +1,3 @@
-// todo: add a boolean field on airtable: "show on web" to mark records for display
 import { customColors } from './colors';
 import { stringifyArr } from '../helpers';
 
@@ -71,7 +70,6 @@ function parseData(data) {
           // create something like {2020: [..., ...], 2021: [...]}
           months: getProgramMonths(startDate, endDate),
           name: record['Program Name'],
-          //  todo: allow multiple select
           programType: record['Program Type'],
           programTypeColor: record['Program Type Color'],
           quickDescription: record['Quick Description'],
@@ -82,7 +80,7 @@ function parseData(data) {
     }
   });
   programTypesArr = [
-    ...new Set(outputArr.map(el => el.programType).flat()),
+    ...new Set(outputArr.map(el => el.progamType).flat()),
   ].sort();
   // todo: make it more robust to account for correct sorting, year etc.
   programMonthsArr = [...new Set(outputArr.map(el => el.months).flat())];

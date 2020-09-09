@@ -1,5 +1,4 @@
 <script>
-  // todo: add svelte animation/transition when dom elements appear/disappear
   import { fade, fly, slide } from 'svelte/transition';
 
   import Tailwindcss from './Tailwindcss.svelte';
