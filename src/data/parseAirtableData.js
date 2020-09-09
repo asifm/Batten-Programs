@@ -55,8 +55,8 @@ function parseData(data) {
         endDate = new Date(record.End);
         outputArr.push({
           id: record.id,
-          // Some properties are required by highcharts gantt:
-          // start (in epoch time), end (in epoch time), color, name
+          // Some properties are required by highcharts gantt: start (in epoch time), end (in epoch time), color, name
+          // Can rename those if highchart is removed
           alumni: record['Open to Alumni'],
           audience: stringifyArr(record, 'Audience'),
           color: customColors[record.Theme],
