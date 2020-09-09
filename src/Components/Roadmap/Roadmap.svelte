@@ -41,7 +41,7 @@
   <div class="self-center col-span-1">
     {#if dataready}
       <div id="description" class="m-3 rounded-md shadow bg-{program.theme}">
-        <div class="p-5 uppercase bg-gray-200 border-b border-white">
+        <div class="p-5 uppercase border-b border-white bg-cool-gray-200">
           <h4 class="ml-2">{program.name}</h4>
           <button type="button" class="bg-white shadow btn">
             <a href={program.link} target="_blank" class="href">
@@ -58,7 +58,7 @@
         </div>
       </div>
     {:else}
-      <div class="p-2 m-3 bg-gray-200 rounded-md">
+      <div class="p-2 m-3 rounded-md bg-cool-gray-200">
         <h6>To learn more, click on the bars on the chart.</h6>
       </div>
     {/if}

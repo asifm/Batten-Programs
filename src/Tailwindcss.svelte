@@ -57,8 +57,13 @@
   p {
     font-family: 'franklin-gothic-urw';
     font-weight: 300;
+    @apply text-base;
   }
-
+  @media (max-width: 640px) {
+    p {
+      @apply text-sm;
+    }
+  }
   @tailwind components;
   /* My custom component styles: eg .btn .card */
 
@@ -71,24 +76,22 @@
   }
 
   .btn-blue {
-    @apply bg-dd-blue text-gray-100;
+    @apply bg-dd-blue text-cool-gray-100;
   }
 
   .btn-gray {
-    @apply bg-gray-300 text-gray-900;
+    @apply bg-cool-gray-300 text-cool-gray-900;
   }
 
   .btn:hover {
-    @apply bg-gray-500;
+    @apply bg-cool-gray-500;
   }
 
   .btn:focus {
     @apply border-dd-blue;
   }
 
-  /* Start purging... */
   @tailwind utilities;
-  /* Stop purging. */
 
   /* My custom utilities: eg .text-shadow-sm */
   html {

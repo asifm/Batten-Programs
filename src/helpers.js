@@ -3,7 +3,6 @@ export function stringifyArr(obj, prop) {
   if (obj.hasOwnProperty(prop)) {
     stringProp = obj[prop].join(', ');
   } else {
-    // console.log(prop, 'not found in ', obj);
     stringProp = '';
   }
   return stringProp;

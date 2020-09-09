@@ -1,4 +1,3 @@
-// const newColors = require('./colors.js');
 const { customColors } = require('./src/data/colors');
 const production = !process.env.ROLLUP_WATCH;
 
@@ -12,6 +11,7 @@ module.exports = {
       './src/**/*.ts',
     ],
     options: {
+      // replace with program type colors
       whitelist: ['bg-experience', 'bg-learn', 'bg-connect'],
     },
   },
@@ -30,11 +30,12 @@ module.exports = {
     },
   },
   variants: {
-    boxShadow: ['group-focus'],
+    boxShadow: ['group-focus', 'hover'],
   },
   // Turning off because the plugin crashes the rollup-based build process
-  // plugins: [require('@tailwindcss/ui')],
+  plugins: [require('@tailwindcss/ui')],
   future: {
     removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
   },
 };

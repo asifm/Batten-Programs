@@ -14,16 +14,18 @@
 
   let programTypes = ['All Types'];
   let programMonths = [];
+
   let hiddenDropdownOptions = true;
   let alumniToggle = false;
   let programTypeSelected = 'All Types';
   let tiles;
   let modalHidden = true;
   $: modalData = {};
-  function handleClick(programData) {
+
+  function handleClickOnTile(programData) {
     modalData = programData;
     modalHidden = false;
-    tiles = document.getElementById('program-tiles');
+    tiles = document.getElementById('program-tiles-container');
     tiles.classList.add('opacity-50');
   }
   function handleCloseModal(e) {
@@ -50,7 +52,12 @@
   function handleAlumniToggle() {
     // reset to 'All Types' whether alumniToggle changes to true or false
     programTypeSelected = 'All Types';
+
+    // Close dropdown options if open
+    hiddenDropdownOptions = true;
+
     alumniToggle = !alumniToggle;
+
     if (alumniToggle) {
       selectedPrograms = programs.filter(el => el.alumni);
     } else {
@@ -71,6 +78,7 @@
         months,
         name,
         programType,
+        programTypeColor,
         quickDescription,
         start,
         theme,
@@ -81,10 +89,10 @@
         end,
         completed,
         link,
-        link,
         months,
         name,
         programType,
+        programTypeColor,
         quickDescription,
         start,
         theme,
@@ -97,6 +105,7 @@
 </script>
 
 <style>
+  /* To center the program modal */
   #program-modal {
     top: 50%;
     left: 50%;
@@ -104,11 +113,12 @@
 </style>
 
 <Tailwindcss />
+
 <main>
   <!-- header -->
   <div class="mb-3 leading-tight text-center shadow bg-tangerine text-dd-blue">
     <div class="container px-4 py-1 mx-auto">
-      <h2>Batten Institute Programs</h2>
+      <h2 class="font-black tracking-wide">Batten Institute Programs</h2>
       <h3>Fall 2020–21</h3>
     </div>
   </div>
@@ -118,14 +128,15 @@
   <div class="container px-3 mx-auto">
     {#if dataready}
       <div class="grid grid-cols-2 gap-3 mb-10">
-        <div class="flex flex-row gap-4">
+        <!-- Dropdown -->
+        <div class="z-30 flex flex-row gap-4" id="dropdown-container">
           <!-- Dropdown button -->
           <div class="relative col-span-1 text-left">
             <div class="rounded-md shadow-sm">
               <button
                 type="button"
                 on:click={handleDropdownButtonClick}
-                class="inline-flex px-4 py-2 font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                class="inline-flex px-4 py-2 font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md text-cool-gray-700 border-cool-gray-300 hover:text-cool-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-cool-gray-50 active:text-cool-gray-800"
                 id="options-menu"
                 aria-haspopup="true"
                 aria-expanded="true">
@@ -154,30 +165,31 @@
                   aria-labelledby="options-menu">
                   {#each programTypes as programType}
                     <span
-                      class="block px-4 py-2 text-sm leading-5 text-right text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                      class="block px-4 py-2 text-sm leading-5 text-right text-cool-gray-700 hover:bg-cool-gray-100 hover:text-cool-gray-900 focus:outline-none focus:bg-cool-gray-100 focus:text-cool-gray-900"
                       role="menuitem">{programType}</span>
                   {/each}
                 </div>
               </div>
             </div>
           </div>
-          <div class="self-center px-1 border-b-4 border-gray-400">
+          <div class="self-center px-1 border-b-4 border-cool-gray-400">
             <span
-              class="text-sm tracking-wider text-gray-700 uppercase">{programTypeSelected}</span>
+              class="text-sm tracking-wider uppercase text-cool-gray-700">{programTypeSelected}</span>
           </div>
         </div>
 
         <!-- Toggle -->
 
-        <div class="col-span-1 text-right">
-          <span class="p-1 text-sm text-gray-700 rounded">Open to alumni</span>
+        <div class="col-span-1 text-right" id="alumnitoggle-container">
+          <span class="p-1 text-sm rounded text-cool-gray-700">Open to alumni</span>
           <span
             role="checkbox"
             tabindex="0"
             aria-checked="false"
+            aria-label="Open to alumni"
             on:click={handleAlumniToggle}
             class="align-middle relative inline-flex flex-shrink-0 h-6
-              transition-colors duration-200 ease-in-out {alumniToggle ? 'bg-dd-blue-600' : 'bg-gray-200'}
+              transition-colors duration-200 ease-in-out {alumniToggle ? 'bg-dd-blue-300' : 'bg-cool-gray-200'}
               border-2 border-transparent rounded-full cursor-pointer w-16 focus:outline-none
               focus:shadow-outline">
             <span
@@ -190,10 +202,10 @@
       </div>
 
       <div
-        class="grid grid-cols-1 transition-opacity duration-500 ease-in-out sm:gap-5 sm:grid-cols-2 lg:grid-cols-5"
-        id="program-tiles">
+        class="grid grid-cols-1 sm:gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+        id="program-tiles-container">
         {#each programMonths as month}
-          <div class="col-span-1">
+          <div class="col-span-1" transition:fly>
             <div class="p-3 font-bold tracking-widest uppercase text-dd-blue">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -210,16 +222,15 @@
               {month}
             </div>
             {#each selectedPrograms as programData}
-              <li
+              <div
                 class="flex flex-col rounded-md"
-                in:fly={{ y: 100, duration: 500 }}
-                out:fade>
+                transition:fly={{ y: 100, duration: 250 }}>
                 {#if programData.months.includes(month)}
                   <ProgramTile
                     {...programData}
-                    on:click={() => handleClick(programData)} />
+                    on:click={() => handleClickOnTile(programData)} />
                 {/if}
-              </li>
+              </div>
             {/each}
           </div>
         {/each}
@@ -228,7 +239,7 @@
         <div
           id="program-modal"
           transition:slide={{ y: -100 }}
-          class="fixed z-10 w-3/4 transform -translate-x-1/2 -translate-y-1/2 border-2 rounded-sm shadow-lg md:w-1/2 lg:w-1/3 xl:w-1/4 border-dd-blue">
+          class="fixed z-40 w-11/12 max-w-full max-h-full overflow-auto transform -translate-x-1/2 -translate-y-1/2 rounded shadow-lg sm:w-4/5 md:w-1/2 lg:w-1/3">
           <ProgramModal {...modalData} on:closeModal={handleCloseModal} />
         </div>
       {/if}

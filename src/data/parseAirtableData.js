@@ -73,6 +73,7 @@ function parseData(data) {
           name: record['Program Name'],
           //  todo: allow multiple select
           programType: record['Program Type'],
+          programTypeColor: record['Program Type Color'],
           quickDescription: record['Quick Description'],
           start: startDate.getTime(),
           theme: record.Theme,
@@ -83,7 +84,6 @@ function parseData(data) {
   programTypesArr = [
     ...new Set(outputArr.map(el => el.programType).flat()),
   ].sort();
-
   // todo: make it more robust to account for correct sorting, year etc.
   programMonthsArr = [...new Set(outputArr.map(el => el.months).flat())];
 
