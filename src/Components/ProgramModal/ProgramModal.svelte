@@ -45,20 +45,20 @@
             d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
-      <h4 class="leading-6 text-cool-gray-900">{name}</h4>
+      <h4 class="leading-6 text-gray-900">{name}</h4>
       <span
-        class="flex-shrink-0 inline-block px-2 py-1 m-2 text-xs font-medium bg-opacity-75 rounded bg-cool-gray-200 text-dd-blue">
+        class="flex-shrink-0 inline-block px-2 py-1 m-2 text-xs font-medium bg-opacity-75 rounded bg-dd-blue-100 text-dd-blue">
         {programType}
       </span>
     </div>
     <div
-      class="flex items-center px-6 py-2 space-x-3 font-sans text-xs uppercase text-cool-gray-200 bg-dd-blue">
+      class="flex items-center px-8 py-2 space-x-3 font-sans text-xs text-gray-200 uppercase bg-dd-blue">
       <span>
         <!-- {getFormattedDateFromEpoch(start)} to {getFormattedDateFromEpoch(end)} -->
         placeholder
       </span>
     </div>
-    <div class="px-6 py-2 space-y-2 text-sm bg-white lg:text-lg text-cool-gray-800">
+    <div class="px-8 py-2 space-y-2 text-sm text-gray-800 bg-white lg:text-lg">
       <p>{description}</p>
       <p>
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
@@ -72,7 +72,7 @@
       </p>
     </div>
     <button
-      class="mb-6 -ml-1 text-xs shadow-sm bg-cool-gray-200 border-cool-gray-800 btn">
+      class="mb-6 -ml-1 text-xs border-gray-800 shadow-sm bg-dd-blue-100 btn">
       <a href={link} target="_blank">Program Schedule and Other Details</a>
     </button>
   </div>
