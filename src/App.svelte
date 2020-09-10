@@ -1,24 +1,49 @@
 <script>
   import { fade, fly, slide } from 'svelte/transition';
-
   import Tailwindcss from './Tailwindcss.svelte';
-  import ProgramModal from './Components/ProgramModal/ProgramModal.svelte';
+
+  import ProgramTypeDropdown from './Components/ProgramTypeDropdown/ProgramTypeDropdown.svelte';
   import ProgramTile from './Components/ProgramTile/ProgramTile.svelte';
+  import ProgramModal from './Components/ProgramModal/ProgramModal.svelte';
+
   import { dataPromise } from './data/parseAirtableData';
+
+  let dataready = false;
 
   let programs = [];
   $: selectedPrograms = programs;
-  let dataready = false;
 
   let programTypes = ['All Types'];
-  let programMonths = [];
-
-  let hiddenDropdownOptions = true;
-  let alumniToggle = false;
   let programTypeSelected = 'All Types';
+  let dropdownOptsHidden = true;
+
+  let programMonths = [];
+  let alumniToggle = false;
+
   let tiles;
   let modalHidden = true;
   $: modalData = {};
+
+  function handleDropdownClick(e) {
+    // console.log('clicked', e);
+    if (e.target.id === 'dd-button' || e.target.id === 'dd-svg') {
+      dropdownOptsHidden = !dropdownOptsHidden;
+    } else {
+      programTypeSelected = e.target.innerText;
+      dropdownOptsHidden = true;
+
+      // reset alumniToggle if it's been set to true
+      alumniToggle = false;
+
+      if (programTypeSelected === 'All Types') {
+        selectedPrograms = programs;
+      } else {
+        selectedPrograms = programs.filter(
+          el => el.programType == programTypeSelected,
+        );
+      }
+    }
+  }
 
   function handleClickOnTile(programData) {
     modalData = programData;
@@ -30,29 +55,13 @@
     modalHidden = true;
     tiles.classList.remove('opacity-50');
   }
-  function handleDropdownButtonClick() {
-    hiddenDropdownOptions = !hiddenDropdownOptions;
-  }
 
-  function handleDropdownOptionClick(e) {
-    programTypeSelected = e.target.innerText;
-    hiddenDropdownOptions = true;
-    // reset alumniToggle if it's been set to true
-    alumniToggle = false;
-    if (programTypeSelected === 'All Types') {
-      selectedPrograms = programs;
-    } else {
-      selectedPrograms = programs.filter(
-        el => el.programType == programTypeSelected,
-      );
-    }
-  }
   function handleAlumniToggle() {
     // reset to 'All Types' whether alumniToggle changes to true or false
     programTypeSelected = 'All Types';
 
     // Close dropdown options if open
-    hiddenDropdownOptions = true;
+    dropdownOptsHidden = true;
 
     alumniToggle = !alumniToggle;
 
@@ -111,7 +120,6 @@
 </style>
 
 <Tailwindcss />
-
 <main>
   <!-- header -->
   <div class="mb-3 leading-tight text-center shadow bg-tangerine text-dd-blue">
@@ -128,58 +136,19 @@
       <div class="grid grid-cols-2 gap-3 mb-10">
         <!-- Dropdown -->
         <div class="z-30 flex flex-row gap-4" id="dropdown-container">
-          <!-- Dropdown button -->
-          <div class="relative col-span-1 text-left">
-            <div class="rounded-md shadow-sm">
-              <button
-                type="button"
-                on:click={handleDropdownButtonClick}
-                class="inline-flex px-4 py-2 font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md text-cool-gray-700 border-cool-gray-300 hover:text-cool-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-cool-gray-50 active:text-cool-gray-800"
-                id="options-menu"
-                aria-haspopup="true"
-                aria-expanded="true">
-                Program Type <svg
-                  class="w-5 h-5 ml-2 -mr-1"
-                  viewBox="0 0 20 20"
-                  fill="currentColor">
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd" />
-                </svg>
-              </button>
-            </div>
-
-            <!-- Dropdown options -->
-            <div
-              class="absolute right-0 mt-2 origin-top-right rounded-md shadow-lg">
-              <div class="bg-white rounded-md">
-                <div
-                  class="py-1 cursor-pointer"
-                  role="menu"
-                  hidden={hiddenDropdownOptions}
-                  on:click={handleDropdownOptionClick}
-                  aria-orientation="vertical"
-                  aria-labelledby="options-menu">
-                  {#each programTypes as programType}
-                    <span
-                      class="block px-4 py-2 text-sm leading-5 text-right text-cool-gray-700 hover:bg-cool-gray-100 hover:text-cool-gray-900 focus:outline-none focus:bg-cool-gray-100 focus:text-cool-gray-900"
-                      role="menuitem">{programType}</span>
-                  {/each}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="self-center px-1 border-b-4 border-cool-gray-400">
-            <span
-              class="text-sm tracking-wider uppercase text-cool-gray-700">{programTypeSelected}</span>
-          </div>
+          <ProgramTypeDropdown
+            {programTypes}
+            {programTypeSelected}
+            {dropdownOptsHidden}
+            on:click={handleDropdownClick} />
         </div>
 
         <!-- Toggle -->
 
-        <div class="col-span-1 text-right" id="alumnitoggle-container">
-          <span class="p-1 text-sm rounded text-cool-gray-700">Open to alumni</span>
+        <div
+          class="self-center col-span-1 text-right"
+          id="alumnitoggle-container">
+          <span class="mr-1 text-sm text-gray-700">Open to alumni</span>
           <span
             role="checkbox"
             tabindex="0"
@@ -187,7 +156,7 @@
             aria-label="Open to alumni"
             on:click={handleAlumniToggle}
             class="align-middle relative inline-flex flex-shrink-0 h-6
-              transition-colors duration-200 ease-in-out {alumniToggle ? 'bg-dd-blue-300' : 'bg-cool-gray-200'}
+              transition-colors duration-200 ease-in-out {alumniToggle ? 'bg-dd-blue' : 'bg-dd-blue-100'}
               border-2 border-transparent rounded-full cursor-pointer w-16 focus:outline-none
               focus:shadow-outline">
             <span
