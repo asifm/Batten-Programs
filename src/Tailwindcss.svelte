@@ -43,16 +43,16 @@
   }
   h1 {
     font-weight: 700;
-    @apply font-heading text-5xl my-4;
+    @apply font-sans text-5xl my-4;
   }
   h2 {
-    @apply font-heading text-4xl text-dd-blue my-3;
+    @apply font-sans text-4xl text-dd-blue my-3;
   }
   h3 {
-    @apply font-heading text-2xl text-dd-blue my-2;
+    @apply font-sans text-2xl text-dd-blue my-2;
   }
   h4 {
-    @apply font-heading text-xl text-dd-blue my-2;
+    @apply font-sans text-xl text-dd-blue my-2;
   }
   p {
     font-family: 'franklin-gothic-urw';

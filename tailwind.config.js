@@ -11,15 +11,13 @@ module.exports = {
       './src/**/*.ts',
     ],
     options: {
-      // replace with program type colors
-      whitelist: ['bg-experience', 'bg-learn', 'bg-connect'],
+      // can whitelist class names so they don't get purged
     },
   },
   theme: {
     extend: {
       colors: customColors,
       fontFamily: {
-        heading: ['franklin-gothic-urw', 'sans-serif'],
         body: ['georgia', 'serif'],
         sans: ['franklin-gothic-urw', 'sans-serif'],
       },
