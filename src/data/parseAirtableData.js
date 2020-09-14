@@ -55,17 +55,16 @@ function parseData(data) {
         outputArr.push({
           id: record.id,
           // Some properties are required by highcharts gantt: start (in epoch time), end (in epoch time), color, name
-          // Can rename those if highchart is removed
+          // Can rename those if highchart is not used
           alumni: record['Open to Alumni'],
           audience: stringifyArr(record, 'Audience'),
-          color: customColors[record.Theme],
-          completed: today > endDate ? true : false,
-          contactEmails: record['Contact Emails'],
-          contactNames: record['Contact Names'],
+          // completed: today > endDate ? true : false,
+          // contactEmails: record['Contact Emails'],
+          // contactNames: record['Contact Names'],
           description: record.Description,
-          end: endDate.getTime(),
+          // end: endDate.getTime(),
           link: record.URL,
-          mode: stringifyArr(record, 'Delivery Mode'),
+          // mode: stringifyArr(record, 'Delivery Mode'),
           // todo: just months is good enough for now, but really need year-months for long-term use
           // create something like {2020: [..., ...], 2021: [...]}
           months: getProgramMonths(startDate, endDate),
@@ -73,8 +72,7 @@ function parseData(data) {
           programType: record['Program Type'],
           programTypeColor: record['Program Type Color'],
           quickDescription: record['Quick Description'],
-          start: startDate.getTime(),
-          theme: record.Theme,
+          // start: startDate.getTime(),
         });
       }
     }
