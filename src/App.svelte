@@ -20,15 +20,15 @@
   let programMonths = [];
   let alumniToggle = false;
 
-  let tiles;
+  let tiles = [];
   let modalHidden = true;
   $: modalData = {};
 
   function handleDropdownClick(e) {
-    // console.log('clicked', e);
-    if (e.target.id === 'dd-button' || e.target.id === 'dd-svg') {
+    // Show or hide the dropdown options when button clicked
+    if (e.target.closest('#dd-button')) {
       dropdownOptsHidden = !dropdownOptsHidden;
-    } else {
+    } else if (e.target.closest('#dd-options')) {
       programTypeSelected = e.target.innerText;
       dropdownOptsHidden = true;
 
@@ -51,7 +51,7 @@
     tiles = document.getElementById('program-tiles-container');
     tiles.classList.add('opacity-50');
   }
-  function handleCloseModal(e) {
+  function handleCloseModal() {
     modalHidden = true;
     tiles.classList.remove('opacity-50');
   }
@@ -109,6 +109,18 @@
     programMonths = resolvedData[2];
     dataready = true;
   });
+  function handleKeydown(e) {
+    if (e.key === 'Escape' && !modalHidden) {
+      handleCloseModal()
+    } 
+  }
+  function handleGlobalClick(e) {
+    // Detect if target is outside open modal and if so, close modal 
+    if (!e.target.closest('#program-modal') && !e.target.closest('.program-tile')) {
+      handleCloseModal()
+    }
+    return;
+  }
 </script>
 
 <style>
@@ -120,7 +132,9 @@
 </style>
 
 <Tailwindcss />
+<svelte:window on:keydown={handleKeydown} on:click={handleGlobalClick}/>
 <main>
+
   <!-- header -->
   <div class="mb-3 leading-tight text-center shadow bg-tangerine text-dd-blue">
     <div class="container px-4 py-1 mx-auto">
@@ -131,7 +145,7 @@
 
   <!-- New section: ProgramTiles -->
 
-  <div class="container px-3 mx-auto">
+  <div class="container px-3 mx-auto md:px-8">
     {#if dataready}
       <div class="grid grid-cols-2 gap-3 mb-10">
         <!-- Dropdown -->
@@ -155,14 +169,14 @@
             aria-checked="false"
             aria-label="Open to alumni"
             on:click={handleAlumniToggle}
-            class="align-middle relative inline-flex flex-shrink-0 h-6
-              transition-colors duration-200 ease-in-out {alumniToggle ? 'bg-dd-blue' : 'bg-dd-blue-100'}
-              border-2 border-transparent rounded-full cursor-pointer w-16 focus:outline-none
+            class="align-middle relative inline-flex flex-shrink-0 h-5
+              transition-colors duration-200 ease-in-out {alumniToggle ? 'bg-dd-blue-200' : 'bg-dd-blue-100'}
+              border-2 border-transparent rounded-full cursor-pointer w-12 focus:outline-none
               focus:shadow-outline">
             <span
               aria-hidden="true"
-              class="inline-block w-6 h-6 transition duration-200 ease-in-out
-                transform {alumniToggle ? 'translate-x-10' : 'translate-x-0'} bg-white
+              class="inline-block w-4 h-4 transition duration-200 ease-in-out
+                transform {alumniToggle ? 'translate-x-8' : 'translate-x-0'} bg-white
                 rounded-full shadow" />
           </span>
         </div>
