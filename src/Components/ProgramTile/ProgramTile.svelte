@@ -4,18 +4,6 @@
   export let quickDescription;
   export let programTypeColor;
   export let programType;
-
-  // export let description;
-  // export let link;
-  // export let theme;
-  // export let audience;
-  // export let start;
-  // export let end;
-  // export let contactnames;
-  // export let contactemails
-  // export let months;
-  // export let completed;
-  // export let alumni;
 </script>
 
 <style>
@@ -40,10 +28,9 @@
     <!-- add something later to indicate completed or not. e.g. {completed ? 'opacity-75' : 'opacity-100'} -->
     <div class="flex-1 px-4 py-2 leading-5">
       <p class="pb-1 text-lg font-medium">{name}</p>
-
       <p class="pb-2 text-base">{quickDescription}</p>
-      <div class="text-xs inline-block px-1.5 py-0.5 bg-white rounded shadow">
-        <span class="tracking-wider text-gray-700 uppercase">
+      <div class="text-xs inline-block px-1.5 py-0.5 bg-white rounded shadow-sm">
+        <span class="tracking-wider text-gray-600 uppercase">
           {programType}
         </span>
       </div>

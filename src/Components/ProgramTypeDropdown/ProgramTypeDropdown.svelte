@@ -14,7 +14,7 @@
     <div class="rounded-md shadow-sm">
       <button
         type="button"
-        class="inline-flex px-4 py-2 text-sm leading-5 transition duration-150 ease-in-out border border-gray-300 rounded-md bg-dd-blue-100 hover:text-gray-200 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-dd-blue-50"
+        class="inline-flex px-4 py-2 text-sm leading-5 transition duration-150 ease-in-out rounded-md bg-dd-blue-100 hover:text-gray-700 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-dd-blue-50"
         id="dd-button"
         aria-haspopup="true"
         aria-expanded="true">
@@ -22,8 +22,7 @@
         <svg
           class="w-5 h-5 ml-2 -mr-1"
           viewBox="0 0 20 20"
-          fill="currentColor"
-          id="dd-svg">
+          fill="currentColor">
           <path
             fill-rule="evenodd"
             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -39,12 +38,13 @@
         <div
           class="py-1 cursor-pointer"
           role="menu"
+          id="dd-options"
           hidden={dropdownOptsHidden}
           aria-orientation="vertical"
           aria-labelledby="options-menu">
           {#each programTypes as programType}
             <span
-              class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-dd-blue-100 hover:text-gray-900 focus:outline-none focus:bg-dd-blue-100 focus:text-gray-900"
+              class="block px-4 py-2 text-sm leading-5 text-gray-900 hover:bg-dd-blue-100 focus:outline-none focus:bg-dd-blue-100 focus:text-gray-900"
               role="menuitem">{programType}</span>
           {/each}
           <!-- on:click -->
