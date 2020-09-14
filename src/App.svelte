@@ -20,7 +20,8 @@
   let programMonths = [];
   let alumniToggle = false;
 
-  let tiles = [];
+  let tiles;
+
   let modalHidden = true;
   $: modalData = {};
 
@@ -51,17 +52,14 @@
     tiles = document.getElementById('program-tiles-container');
     tiles.classList.add('opacity-50');
   }
-  function handleCloseModal() {
+  function closeModal() {
     modalHidden = true;
     tiles.classList.remove('opacity-50');
   }
 
   function handleAlumniToggle() {
-    // reset to 'All Types' whether alumniToggle changes to true or false
+    // First reset to 'All Types' whether alumniToggle changes to true or false
     programTypeSelected = 'All Types';
-
-    // Close dropdown options if open
-    dropdownOptsHidden = true;
 
     alumniToggle = !alumniToggle;
 
@@ -72,55 +70,32 @@
     }
   }
 
+  function handleKeydown(e) {
+    if (e.key === 'Escape') {
+      if (!modalHidden) closeModal();
+      if (!dropdownOptsHidden) dropdownOptsHidden = true;
+    }
+  }
+  function handleGlobalClick(e) {
+    // Detect if target is outside open modal and if so, close modal
+    if (
+      !e.target.closest('#program-modal') &&
+      !e.target.closest('.program-tile') &&
+      !modalHidden
+    ) {
+      closeModal();
+    }
+    if (!e.target.closest('#dropdown-container') && !dropdownOptsHidden) {
+      dropdownOptsHidden = true;
+    }
+  }
+
   dataPromise.then(resolvedData => {
-    // Using the technique found here https://stackoverflow.com/a/39333479/1927583
-    programs = resolvedData[0].map(el =>
-      (({
-        alumni,
-        audience,
-        description,
-        end,
-        completed,
-        link,
-        months,
-        name,
-        programType,
-        programTypeColor,
-        quickDescription,
-        start,
-        theme,
-      }) => ({
-        alumni,
-        audience,
-        description,
-        end,
-        completed,
-        link,
-        months,
-        name,
-        programType,
-        programTypeColor,
-        quickDescription,
-        start,
-        theme,
-      }))(el),
-    );
+    programs = resolvedData[0];
     programTypes = programTypes.concat(resolvedData[1]);
     programMonths = resolvedData[2];
     dataready = true;
   });
-  function handleKeydown(e) {
-    if (e.key === 'Escape' && !modalHidden) {
-      handleCloseModal()
-    } 
-  }
-  function handleGlobalClick(e) {
-    // Detect if target is outside open modal and if so, close modal 
-    if (!e.target.closest('#program-modal') && !e.target.closest('.program-tile')) {
-      handleCloseModal()
-    }
-    return;
-  }
 </script>
 
 <style>
@@ -132,9 +107,8 @@
 </style>
 
 <Tailwindcss />
-<svelte:window on:keydown={handleKeydown} on:click={handleGlobalClick}/>
+<svelte:window on:keydown={handleKeydown} on:click={handleGlobalClick} />
 <main>
-
   <!-- header -->
   <div class="mb-3 leading-tight text-center shadow bg-tangerine text-dd-blue">
     <div class="container px-4 py-1 mx-auto">
@@ -208,7 +182,10 @@
                 transition:fly={{ y: 100, duration: 250 }}>
                 {#if programData.months.includes(month)}
                   <ProgramTile
-                    {...programData}
+                    name={programData.name}
+                    programType={programData.programType}
+                    quickDescription={programData.quickDescription}
+                    programTypeColor={programData.programTypeColor}
                     on:click={() => handleClickOnTile(programData)} />
                 {/if}
               </div>
@@ -221,7 +198,14 @@
           id="program-modal"
           transition:slide={{ y: -100 }}
           class="fixed z-40 w-11/12 max-w-full max-h-full overflow-auto transform -translate-x-1/2 -translate-y-1/2 rounded shadow-lg sm:w-4/5 md:w-1/2 lg:w-1/3">
-          <ProgramModal {...modalData} on:closeModal={handleCloseModal} />
+          <ProgramModal
+            name={modalData.name}
+            programType={modalData.programType}
+            description={modalData.description}
+            link={modalData.link}
+            audience={modalData.audience}
+            programTypeColor={modalData.programTypeColor}
+            on:closeModalEvent={closeModal} />
         </div>
       {/if}
     {/if}

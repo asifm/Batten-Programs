@@ -2,20 +2,13 @@
   export let name;
   export let description;
   export let link;
-  // export let theme;
   export let programType;
   export let programTypeColor;
-  // export let contactnames;
-  // export let contactemails
   export let audience;
-  // export let start;
-  // export let end;
 
-  import { onMount, onDestroy, createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from 'svelte';
 
   const dispatch = createEventDispatcher();
-
-  // import { getFormattedDateFromEpoch } from '../../helpers';
 </script>
 
 <section class="flex items-center justify-between bg-white program-modal">
@@ -25,7 +18,7 @@
       style="background-color: {programTypeColor}">
       <button
         id="close-button"
-        on:click={() => dispatch('closeModal')}
+        on:click={() => dispatch('closeModalEvent')}
         class="absolute top-0 right-0 w-8 m-1 opacity-50 hover:opacity-100">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +33,6 @@
         </svg>
       </button>
       <h4 class="text-2xl leading-tight text-dd-blue">{name}</h4>
-      
     </div>
     <div
       class="flex items-center px-8 py-2 space-x-3 font-sans text-xs text-gray-200 uppercase bg-dd-blue">
