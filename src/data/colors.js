@@ -6,7 +6,8 @@ exports.customColors = {
     200: '#C8CBD2',
     300: '#A7ABB7',
     400: '#656C81',
-    default: '#232D4B',
+    light: '#202946',
+    default: '#141e3c',
   },
   // https://www.htmlcsscolor.com/hex/e57200
   'dd-orange': {
