@@ -41,7 +41,7 @@
         {programType}
       </span>
     </div>
-    <div class="px-8 py-2 space-y-2 text-sm text-gray-800 bg-white lg:text-lg">
+    <div class="px-8 py-2 space-y-2 text-sm bg-white lg:text-lg">
       <p>{description}</p>
       <p>
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
@@ -54,9 +54,11 @@
         {audience}
       </p>
     </div>
-    <button
-      class="mb-6 -ml-1 text-xs border-gray-800 shadow-sm bg-dd-blue-100 btn">
-      <a href={link} target="_blank">Program Schedule and Other Details</a>
-    </button>
+    <div>
+      <button
+        class="mb-6 -ml-1 text-xs border-gray-800 shadow-sm bg-dd-blue-100 btn">
+        <a href={link} target="_blank">Program Schedule and Other Details</a>
+      </button>
+    </div>
   </div>
 </section>

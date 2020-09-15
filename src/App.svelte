@@ -157,7 +157,7 @@
       </div>
 
       <div
-        class="grid grid-cols-1 sm:gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+        class="grid grid-cols-1 sm:gap-7 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
         id="program-tiles-container">
         {#each programMonths as month}
           <div class="col-span-1" transition:fly>
