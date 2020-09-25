@@ -110,13 +110,16 @@
 <svelte:window on:keydown={handleKeydown} on:click={handleGlobalClick} />
 <main>
   <!-- header -->
-  <div class="mb-3 leading-tight text-center shadow bg-tangerine text-dd-blue">
-    <div class="container px-4 py-1 mx-auto">
-      <h2 class="font-black tracking-wide">Batten Institute Programs</h2>
-      <h3>Fall 2020–21</h3>
+  <!-- Append '?noheader' to url to hide header -->
+  {#if location.search !== '?noheader'}
+    <div
+      class="mb-3 leading-tight text-center shadow bg-tangerine text-dd-blue">
+      <div class="container px-4 py-1 mx-auto">
+        <h2 class="font-black tracking-wide">Batten Institute Programs</h2>
+        <h3>Fall 2020–21</h3>
+      </div>
     </div>
-  </div>
-
+  {/if}
   <!-- New section: ProgramTiles -->
 
   <div class="container px-3 mx-auto md:px-8">
@@ -157,7 +160,8 @@
       </div>
 
       <div
-        class="grid grid-cols-1 sm:gap-7 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+        class="grid grid-cols-1 sm:gap-7 sm:grid-cols-2 md:grid-cols-3
+          lg:grid-cols-5"
         id="program-tiles-container">
         {#each programMonths as month}
           <div class="col-span-1" transition:fly>
@@ -197,7 +201,9 @@
         <div
           id="program-modal"
           transition:slide={{ y: -100 }}
-          class="fixed z-40 w-11/12 max-w-full max-h-full overflow-auto transform -translate-x-1/2 -translate-y-1/2 rounded shadow-lg sm:w-4/5 md:w-1/2 lg:w-1/3">
+          class="fixed z-40 w-11/12 max-w-full max-h-full overflow-auto
+            transform -translate-x-1/2 -translate-y-1/2 rounded shadow-lg
+            sm:w-4/5 md:w-1/2 lg:w-1/3">
           <ProgramModal
             name={modalData.name}
             programType={modalData.programType}
