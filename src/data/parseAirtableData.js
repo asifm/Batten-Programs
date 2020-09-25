@@ -1,4 +1,4 @@
-import { customColors } from './colors';
+// import { customColors } from './colors';
 import { stringifyArr } from '../helpers';
 
 const endpoint =
@@ -58,7 +58,7 @@ function parseData(data) {
           // Can rename those if highchart is not used
           alumni: record['Open to Alumni'],
           audience: stringifyArr(record, 'Audience'),
-          // completed: today > endDate ? true : false,
+          completed: today > endDate ? true : false,
           // contactEmails: record['Contact Emails'],
           // contactNames: record['Contact Names'],
           description: record.Description,
@@ -72,7 +72,8 @@ function parseData(data) {
           programType: record['Program Type'],
           programTypeColor: record['Program Type Color'],
           quickDescription: record['Quick Description'],
-          // start: startDate.getTime(),
+          start: startDate.getTime(),
+          end: endDate.getTime(),
         });
       }
     }
