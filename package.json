@@ -4,7 +4,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public"
+    "start": "sirv public --single"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^15.0.0",
@@ -24,6 +24,7 @@
     "tailwindcss": "^1.8.7"
   },
   "dependencies": {
-    "airtable": "^0.10.0"
+    "airtable": "^0.10.0",
+    "page": "^1.11.6"
   }
 }
