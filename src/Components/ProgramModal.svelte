@@ -11,7 +11,7 @@
   const dispatch = createEventDispatcher();
 </script>
 
-<section class="flex items-center justify-between bg-white program-modal">
+<section class="bg-white border-2 border-dd-blue-light program-modal">
   <div class="flex-1">
     <div
       class="relative flex items-center px-8 py-2"
@@ -39,7 +39,7 @@
       <!-- {getFormattedDateFromEpoch(start)} to {getFormattedDateFromEpoch(end)} -->
       {programType}
     </div>
-    <div class="px-8 py-2 space-y-2 text-sm bg-white lg:text-lg">
+    <div class="px-8 pt-2 pb-5 space-y-2 text-sm bg-white lg:text-lg">
       <p>{description}</p>
       <p>
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
@@ -51,17 +51,19 @@
       <p class="pt-1 font-sans text-xs font-medium tracking-wide uppercase">
         {audience}
       </p>
-    </div>
-    <div>
-      <button class="mb-4 -ml-1 border-gray-800 shadow-sm bg-dd-blue-100 btn">
-        <a href={link} target="_blank">See program schedule and other details <svg
-            class="inline-block w-6 h-6 ml-2"
+      <button
+        class="px-2 py-1 -ml-2 space-y-4 text-sm tracking-wider text-left uppercase duration-300 border-t border-b border-gray-800 shadow-sm text-dd-blue-light bg-dd-orange-200 hover:shadow-lg">
+        <a href={link} target="_blank">
+          <span>See program schedule and other details</span>
+          <svg
+            class="inline-block w-5 h-5"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"><path
               d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
             <path
-              d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" /></svg></a>
+              d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" /></svg>
+        </a>
       </button>
     </div>
   </div>

@@ -101,14 +101,6 @@
   }
 </script>
 
-<style>
-  /* To center the program modal */
-  #program-modal {
-    top: 50%;
-    left: 50%;
-  }
-</style>
-
 <Tailwindcss />
 <svelte:window on:keydown={handleKeydown} on:click={handleGlobalClick} />
 <main>
@@ -204,7 +196,7 @@
         <div
           id="program-modal"
           transition:slide={{ y: -100 }}
-          class="fixed z-40 w-11/12 max-w-full max-h-full overflow-auto transform -translate-x-1/2 -translate-y-1/2 rounded shadow-lg sm:w-4/5 md:w-1/2 lg:w-1/3">
+          class="fixed top-0 right-0 z-40 w-11/12 max-w-full max-h-full overflow-auto rounded shadow-lg sm:w-4/5 md:w-1/2 lg:w-1/3">
           <ProgramModal
             name={modalData.name}
             programType={modalData.programType}
