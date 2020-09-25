@@ -167,7 +167,8 @@
         id="program-tiles-container">
         {#each programMonths as month}
           <div class="col-span-1" transition:fly>
-            <div class="p-3 font-bold tracking-widest uppercase text-dd-blue">
+            <div
+              class="sticky top-0 z-50 p-3 font-bold tracking-widest uppercase bg-white text-dd-blue">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
