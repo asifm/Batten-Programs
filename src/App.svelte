@@ -1,10 +1,10 @@
 <script>
-  import { fade, fly, slide } from 'svelte/transition';
+  import { fly, slide } from 'svelte/transition';
   import Tailwindcss from './Tailwindcss.svelte';
 
-  import ProgramTypeDropdown from './Components/ProgramTypeDropdown/ProgramTypeDropdown.svelte';
-  import ProgramTile from './Components/ProgramTile/ProgramTile.svelte';
-  import ProgramModal from './Components/ProgramModal/ProgramModal.svelte';
+  import ProgramTypeDropdown from './Components/ProgramTypeDropdown.svelte';
+  import ProgramTile from './Components/ProgramTile.svelte';
+  import ProgramModal from './Components/ProgramModal.svelte';
 
   import { dataPromise } from './data/parseAirtableData';
 
