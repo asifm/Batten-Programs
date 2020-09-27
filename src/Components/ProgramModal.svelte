@@ -19,7 +19,7 @@
       <button
         id="close-button"
         on:click={() => dispatch('closeModalEvent')}
-        class="absolute top-0 right-0 w-8 m-1 opacity-50 hover:opacity-100">
+        class="absolute top-0 right-0 w-8 m-1 border border-black opacity-50 hover:opacity-100">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -28,12 +28,12 @@
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
+            stroke-width="1"
             d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
       <h4
-        class="text-xl leading-tight md:text-2xl whitespace-nowrap text-dd-blue-light">
+        class="text-xl font-black leading-tight md:text-2xl whitespace-nowrap text-dd-blue-light">
         {name}
       </h4>
     </div>

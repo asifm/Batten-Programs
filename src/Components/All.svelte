@@ -185,6 +185,7 @@
                     programType={program.programType}
                     quickDescription={program.quickDescription}
                     programTypeColor={program.programTypeColor}
+                    completed={program.completed}
                     on:click={() => handleClickOnTile(program)} />
                 {/if}
               </div>

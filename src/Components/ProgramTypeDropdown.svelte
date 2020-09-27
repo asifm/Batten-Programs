@@ -19,10 +19,7 @@
         aria-haspopup="true"
         aria-expanded="true">
         {programTypeSelected}
-        <svg
-          class="w-5 h-5 ml-2 -mr-1"
-          viewBox="0 0 20 20"
-          fill="currentColor">
+        <svg class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor">
           <path
             fill-rule="evenodd"
             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -44,7 +41,7 @@
           aria-labelledby="options-menu">
           {#each programTypes as programType}
             <span
-              class="block px-4 py-2 text-sm leading-5 text-gray-900 hover:bg-dd-blue-100 focus:outline-none focus:bg-dd-blue-100 focus:text-gray-900"
+              class="block px-3 py-1 text-sm text-gray-700 bg-gray-50 hover:bg-dd-blue-100 focus:outline-none focus:bg-dd-blue-100 focus:text-gray-900"
               role="menuitem">{programType}</span>
           {/each}
           <!-- on:click -->
