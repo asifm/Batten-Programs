@@ -32,7 +32,10 @@
             d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
-      <h4 class="text-2xl leading-tight text-dd-blue-light">{name}</h4>
+      <h4
+        class="text-xl leading-tight md:text-2xl whitespace-nowrap text-dd-blue-light">
+        {name}
+      </h4>
     </div>
     <div
       class="flex items-center px-8 py-2 space-x-3 text-xs tracking-wider text-gray-200 uppercase bg-dd-blue-light">

@@ -4,20 +4,8 @@ import { stringifyArr } from '../helpers';
 const endpoint =
   'https://batten-programs.netlify.app/.netlify/functions/getdata?view=Web';
 
-let monthsArr = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
+let monthsArr = ['January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',];
 
 const today = new Date();
 let startDate;

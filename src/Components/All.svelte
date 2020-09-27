@@ -121,7 +121,7 @@
     {#if dataready}
       <div class="grid grid-cols-2 gap-3 mb-10">
         <!-- Dropdown -->
-        <div class="z-30 flex flex-row gap-4" id="dropdown-container">
+        <div class="z-20 flex flex-row gap-4" id="dropdown-container">
           <ProgramTypeDropdown
             {programTypes}
             {programTypeSelected}
@@ -160,7 +160,7 @@
         {#each programMonths as month}
           <div class="col-span-1" transition:fly>
             <div
-              class="sticky top-0 z-50 p-3 font-bold tracking-widest uppercase bg-white text-dd-blue">
+              class="sticky top-0 z-10 p-3 font-bold tracking-widest uppercase bg-white text-dd-blue">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -196,7 +196,7 @@
         <div
           id="program-modal"
           transition:slide={{ y: -100 }}
-          class="fixed top-0 right-0 z-40 w-11/12 max-w-full max-h-full overflow-auto rounded shadow-lg sm:w-4/5 md:w-1/2 lg:w-1/3">
+          class="fixed top-0 right-0 z-30 w-11/12 max-w-full max-h-full overflow-auto rounded shadow-lg sm:w-4/5 md:w-1/2 lg:w-1/3">
           <ProgramModal
             name={modalData.name}
             programType={modalData.programType}

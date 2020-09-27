@@ -6,13 +6,6 @@
   export let programType;
 </script>
 
-<style>
-  .program-tile:hover {
-    /* A tile when scaled up on hover needs to be over the adjacent tiles */
-    z-index: 20;
-  }
-</style>
-
 <div
   class="flex mb-4 transition duration-500 ease-in-out transform border group hover:border-black program-tile hover:shadow-lg hover:-translate-y-2"
   on:click>
