@@ -1,20 +1,23 @@
 <script>
+  import { getFormattedDateFromEpoch } from '../helpers';
   export let name;
   export let description;
   export let link;
   export let programType;
   export let programTypeColor;
   export let audience;
+  export let start;
+  export let end;
 
   import { createEventDispatcher } from 'svelte';
 
   const dispatch = createEventDispatcher();
 </script>
 
-<section class="bg-white border-2 border-dd-blue-light program-modal">
+<section class="bg-white border-1 border-dd-blue-light program-modal">
   <div class="flex-1">
     <div
-      class="relative flex items-center px-8 py-2"
+      class="relative flex items-center px-6 py-1"
       style="background-color: {programTypeColor}">
       <button
         id="close-button"
@@ -38,11 +41,15 @@
       </h4>
     </div>
     <div
-      class="flex items-center px-8 py-2 space-x-3 text-xs tracking-wider text-gray-200 uppercase bg-dd-blue-light">
-      <!-- {getFormattedDateFromEpoch(start)} to {getFormattedDateFromEpoch(end)} -->
-      {programType}
+      class="flex items-center px-6 py-2 space-x-3 text-xs tracking-widest text-gray-100 uppercase bg-dd-blue-light">
+      <span>
+        {getFormattedDateFromEpoch(start)}
+        –
+        {getFormattedDateFromEpoch(end)}
+      </span>
+      <span class="px-1 font-thin rounded-sm bg-dd-orange">{programType}</span>
     </div>
-    <div class="px-8 pt-2 pb-5 space-y-2 text-sm bg-white lg:text-lg">
+    <div class="px-6 pt-2 pb-5 space-y-2 text-sm bg-white lg:text-lg">
       <p>{description}</p>
       <p>
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
@@ -55,11 +62,11 @@
         {audience}
       </p>
       <button
-        class="px-2 py-1 -ml-2 space-y-4 text-sm tracking-wider text-left uppercase duration-300 border-t border-b border-gray-800 shadow-sm text-dd-blue-light bg-dd-orange-200 hover:shadow-lg">
+        class="px-2 py-1 -ml-2 space-y-4 text-sm font-black text-left uppercase duration-300 border-b border-gray-800 shadow-sm text-dd-blue-light bg-dd-orange-300 hover:shadow-lg hover:bg-dd-orange">
         <a href={link} target="_blank">
           <span>See program schedule and other details</span>
           <svg
-            class="inline-block w-5 h-5"
+            class="inline-block w-5 h-5 text-gray-500"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"><path

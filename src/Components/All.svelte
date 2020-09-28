@@ -57,7 +57,7 @@
   }
 
   function handleClickOnTile(programData) {
-    // To ensure modal is in view  in iframe
+    // To ensure modal is in view when seen through in iframe
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     modalData = programData;
@@ -89,6 +89,7 @@
       if (!dropdownOptsHidden) dropdownOptsHidden = true;
     }
   }
+
   function handleGlobalClick(e) {
     // Detect if target is outside open modal and if so, close modal
     if (
@@ -118,8 +119,8 @@
       </div>
     </div>
   {/if}
-  <!-- New section: ProgramTiles -->
 
+  <!-- New section: ProgramTiles -->
   <div class="container px-3 mx-auto md:px-8">
     {#if dataready}
       <div class="grid grid-cols-2 gap-3 mb-10">
@@ -133,7 +134,6 @@
         </div>
 
         <!-- Toggle -->
-
         <div
           class="self-center col-span-1 text-right"
           id="alumnitoggle-container">
@@ -184,11 +184,11 @@
                 transition:fly={{ y: 100, duration: 250 }}>
                 {#if program.months.includes(month)}
                   <ProgramTile
+                    completed={program.completed}
                     name={program.name}
                     programType={program.programType}
-                    quickDescription={program.quickDescription}
                     programTypeColor={program.programTypeColor}
-                    completed={program.completed}
+                    quickDescription={program.quickDescription}
                     on:click={() => handleClickOnTile(program)} />
                 {/if}
               </div>
@@ -202,12 +202,14 @@
           transition:slide={{ y: -100 }}
           class="fixed top-0 right-0 z-30 w-11/12 max-w-full max-h-full overflow-auto rounded shadow-lg sm:w-4/5 md:w-1/2 lg:w-1/3">
           <ProgramModal
+            audience={modalData.audience}
+            description={modalData.description}
+            end={modalData.end}
+            link={modalData.link}
             name={modalData.name}
             programType={modalData.programType}
-            description={modalData.description}
-            link={modalData.link}
-            audience={modalData.audience}
             programTypeColor={modalData.programTypeColor}
+            start={modalData.start}
             on:closeModalEvent={closeModal} />
         </div>
       {/if}
