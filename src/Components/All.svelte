@@ -57,6 +57,9 @@
   }
 
   function handleClickOnTile(programData) {
+    // To ensure modal is in view  in iframe
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     modalData = programData;
     modalHidden = false;
     tiles = document.getElementById('program-tiles-container');
