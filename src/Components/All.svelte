@@ -121,7 +121,7 @@
   {/if}
 
   <!-- New section: ProgramTiles -->
-  <div class="container px-3 mx-auto md:px-8">
+  <div class="container px-3 mx-auto md:px-6">
     {#if dataready}
       <div class="grid grid-cols-2 gap-3 mb-10">
         <!-- Dropdown -->
@@ -158,7 +158,7 @@
       </div>
 
       <div
-        class="grid grid-cols-1 sm:gap-7 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+        class="grid grid-cols-1 sm:gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
         id="program-tiles-container">
         {#each programMonths as month}
           <div class="col-span-1" transition:fly>
