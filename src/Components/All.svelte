@@ -1,5 +1,5 @@
 <script>
-  import { fly, slide } from 'svelte/transition';
+  import { fade, fly, slide } from 'svelte/transition';
   import Tailwindcss from './Tailwindcss.svelte';
 
   import ProgramTypeDropdown from './ProgramTypeDropdown.svelte';
@@ -161,7 +161,7 @@
         class="grid grid-cols-1 sm:gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
         id="program-tiles-container">
         {#each programMonths as month}
-          <div class="col-span-1" transition:fly>
+          <div class="col-span-1" transition:fade>
             <div
               class="sticky top-0 z-10 p-3 font-bold tracking-widest uppercase bg-white text-dd-blue">
               <svg
@@ -178,10 +178,10 @@
               </svg>
               {month}
             </div>
-            {#each selectedPrograms as program}
-              <div
-                class="flex flex-col rounded-md"
-                transition:fly={{ y: 100, duration: 250 }}>
+            <div
+            
+            transition:fly={{ y: 100, duration: 300 }}>
+              {#each selectedPrograms as program}
                 {#if program.months.includes(month)}
                   <ProgramTile
                     completed={program.completed}
@@ -191,8 +191,8 @@
                     quickDescription={program.quickDescription}
                     on:click={() => handleClickOnTile(program)} />
                 {/if}
-              </div>
-            {/each}
+              {/each}
+            </div>
           </div>
         {/each}
       </div>

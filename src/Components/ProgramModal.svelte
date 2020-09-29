@@ -14,10 +14,10 @@
   const dispatch = createEventDispatcher();
 </script>
 
-<section class="bg-white border-1 border-dd-blue-light program-modal">
+<section class="rounded-lg program-modal">
   <div class="flex-1">
     <div
-      class="relative px-6 py-1 shadow-md"
+      class="relative px-6 py-3 shadow-md"
       style="background-color: {programTypeColor}">
       <button
         id="close-button"
@@ -40,7 +40,7 @@
         {name}
       </h4>
       <div class="flex mb-2 text-xs tracking-widest uppercase">
-        <span class="px-1.5 py-0.5 text-dd-blue bg-dd-orange rounded-bl-lg">
+        <span class="px-1.5 py-0.5 text-white bg-dd-orange rounded-bl-lg">
           {programType}
         </span>
         <span class="px-1.5 py-0.5 bg-white text-dd-blue rounded-br-lg">

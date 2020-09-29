@@ -9,7 +9,8 @@
 
 <style>
   .program-tile:hover {
-    transform: rotate(-2deg);
+    /* transform: rotate(-2deg); */
+    transform: translateY(2);
   }
 </style>
 
