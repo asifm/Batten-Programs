@@ -53,18 +53,13 @@
     <div
       class="px-6 pt-2 pb-4 space-y-2 text-sm font-light bg-dd-blue-100 lg:text-base">
       <div>{description}</div>
-      <div>
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-        ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat.
-      </div>
       <div class="pt-1 font-sans text-xs font-medium tracking-wider uppercase">
-        {audience}
+        <span>Who it is for: {audience}</span>
       </div>
       <button
-        class="px-2 py-1 -ml-2 text-sm font-bold uppercase duration-300 bg-white border rounded shadow-md border-dd-blue text-dd-blue-light hover:bg-dd-orange">
+        class="px-2 py-1 -ml-2 text-sm font-bold text-left uppercase duration-300 bg-white border rounded shadow-md border-dd-blue text-dd-blue-light hover:bg-dd-orange hover:text-white">
         <a href={link} target="_blank">
-          <span>Program schedule and other details</span>&nbsp;<svg
+          <span>Program Schedule, Registration and Other Details</span>&nbsp;<svg
             class="inline-block w-5 h-5 text-gray-500"
             fill="currentColor"
             viewBox="0 0 20 20"
