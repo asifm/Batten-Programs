@@ -45,7 +45,7 @@ function parseData(data) {
           // Some properties are required by highcharts gantt: start (in epoch time), end (in epoch time), color, name
           // Can rename those if highchart is not used
           alumni: record['Open to Alumni'],
-          audience: stringifyArr(record, 'Audience'),
+          audience: record['Primary Audience'],
           completed: today > endDate ? true : false,
           // contactEmails: record['Contact Emails'],
           // contactNames: record['Contact Names'],
@@ -57,6 +57,7 @@ function parseData(data) {
           // create something like {2020: [..., ...], 2021: [...]}
           months: getProgramMonths(startDate, endDate),
           name: record['Program Name'],
+          openTo: record['Open To'],
           programType: record['Program Type'],
           programTypeColor: record['Program Type Color'],
           quickDescription: record['Quick Description'],
