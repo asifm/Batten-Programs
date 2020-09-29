@@ -28,9 +28,7 @@
       <p class="pb-1 text-lg font-medium tracking-tight">{name}</p>
       <p class="pb-2 text-base">{quickDescription}</p>
       <span
-        class="text-xs inline-block px-1.5 bg-gray-50 py-0.5 border-b
-          border-dd-orange text-gray-500 font-black rounded tracking-wider
-          uppercase">
+        class="inline-block px-1 py-0 text-xs font-black tracking-wider text-gray-800 uppercase rounded bg-gray-50">
         {programType}
       </span>
     </div>

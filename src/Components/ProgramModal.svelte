@@ -17,12 +17,12 @@
 <section class="bg-white border-1 border-dd-blue-light program-modal">
   <div class="flex-1">
     <div
-      class="relative flex items-center px-6 py-1"
+      class="relative px-6 py-1 shadow-md"
       style="background-color: {programTypeColor}">
       <button
         id="close-button"
         on:click={() => dispatch('closeModalEvent')}
-        class="absolute top-0 right-0 w-8 m-1 border border-black opacity-50 hover:opacity-100">
+        class="absolute top-0 right-0 w-8 m-1 border border-black rounded-lg opacity-50 hover:opacity-100">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -39,30 +39,32 @@
         class="text-xl font-black leading-tight md:text-2xl text-dd-blue-light">
         {name}
       </h4>
+      <div class="flex mb-2 text-xs tracking-widest uppercase">
+        <span class="px-1.5 py-0.5 text-dd-blue bg-dd-orange rounded-bl-lg">
+          {programType}
+        </span>
+        <span class="px-1.5 py-0.5 bg-white text-dd-blue rounded-br-lg">
+          {getFormattedDateFromEpoch(start)}
+          –
+          {getFormattedDateFromEpoch(end)}
+        </span>
+      </div>
     </div>
     <div
-      class="flex items-center px-6 py-2 space-x-3 text-xs tracking-widest text-gray-100 uppercase bg-dd-blue-light">
-      <span class="px-1 font-thin rounded-sm bg-dd-orange">{programType}</span>
-      <span>
-        {getFormattedDateFromEpoch(start)}
-        –
-        {getFormattedDateFromEpoch(end)}
-      </span>
-    </div>
-    <div class="px-6 pt-2 pb-5 space-y-2 text-sm bg-white lg:text-lg">
-      <p>{description}</p>
-      <p>
+      class="px-6 pt-2 pb-4 space-y-2 text-sm font-light bg-dd-blue-100 lg:text-base">
+      <div>{description}</div>
+      <div>
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
         ut aliquip ex ea commodo consequat. Duis aute irure dolor in
         reprehenderit in voluptate velit esse cillum dolore eu fugiat.
-      </p>
-      <p class="pt-1 font-sans text-xs font-medium tracking-wide uppercase">
+      </div>
+      <div class="pt-1 font-sans text-xs font-medium tracking-wider uppercase">
         {audience}
-      </p>
+      </div>
       <button
-        class="px-2 py-1 -ml-2 text-sm font-black text-left uppercase duration-300 shadow-solid text-dd-blue-light bg-dd-orange-300 hover:bg-dd-orange">
+        class="px-2 py-1 -ml-2 text-sm font-bold uppercase duration-300 bg-white border rounded shadow-md border-dd-blue text-dd-blue-light hover:bg-dd-orange">
         <a href={link} target="_blank">
-          <span>See program schedule and other details</span>&nbsp;<svg
+          <span>Program schedule and other details</span>&nbsp;<svg
             class="inline-block w-5 h-5 text-gray-500"
             fill="currentColor"
             viewBox="0 0 20 20"
