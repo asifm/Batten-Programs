@@ -54,7 +54,7 @@
       class="px-6 pt-2 pb-4 space-y-2 text-sm font-light bg-dd-blue-100 lg:text-base">
       <div>{description}</div>
       <div class="pt-1 font-sans text-xs font-medium tracking-wider uppercase">
-        <span>Who it is for: {audience}</span>
+        <span>Who's it for: {audience}</span>
       </div>
       <button
         class="px-2 py-1 -ml-2 text-sm font-bold text-left uppercase duration-300 bg-white border rounded shadow-md border-dd-blue text-dd-blue-light hover:bg-dd-orange hover:text-white">
