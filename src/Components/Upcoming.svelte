@@ -16,7 +16,7 @@
 </script>
 
 <div class="p-5">
-  <h3>Upcoming Programs for Students</h3>
+  <h3>Upcoming Programs and Events</h3>
   {#each selectedPrograms as program, i}
     <a href={program.link} target="_blank">
       <div
@@ -31,7 +31,8 @@
           <span
             class="border border-dd-blue-200 bg-dd-blue-100 px-1.5 py-0.5
               tracking-widest text-xs text-black uppercase rounded-bl-md">{getFormattedDateFromEpoch(program.start)}
-            – {getFormattedDateFromEpoch(program.end)}</span>
+            –
+            {getFormattedDateFromEpoch(program.end)}</span>
 
           <span
             class="border border-dd-orange px-1.5 py-0.5 tracking-widest text-xs
@@ -47,7 +48,6 @@
         </div>
         <div class="px-3 duration-500 group-hover:text-white">
           <p>{program.quickDescription}</p>
-          <div />
         </div>
       </div>
     </a>
