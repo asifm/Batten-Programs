@@ -121,7 +121,7 @@
   {/if}
 
   <!-- New section: ProgramTiles -->
-  <div class="container px-3 mx-auto md:px-6">
+  <div class="container px-3 mx-auto">
     {#if dataready}
       <div class="grid grid-cols-2 gap-3 mb-10">
         <!-- Dropdown -->
