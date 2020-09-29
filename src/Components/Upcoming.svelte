@@ -29,14 +29,14 @@
 
         <div class="px-3 mt-1">
           <span
-            class="border border-dd-blue-200 bg-dd-blue-100 px-1.5 py-0.5
+            class="border border-dd-blue-200 bg-yellow-100 px-1.5 py-0.5
               tracking-widest text-xs text-black uppercase rounded-bl-md">{getFormattedDateFromEpoch(program.start)}
             –
             {getFormattedDateFromEpoch(program.end)}</span>
 
           <span
             class="border border-dd-orange px-1.5 py-0.5 tracking-widest text-xs
-              text-dd-blue uppercase bg-dd-orange-300 rounded-br-md">{program.programType}</span>
+              text-dd-blue uppercase bg-dd-orange-100 rounded-br-md">{program.programType}</span>
           <svg
             class="inline-block w-5 h-5 ml-3 text-dd-blue-300"
             fill="currentColor"
