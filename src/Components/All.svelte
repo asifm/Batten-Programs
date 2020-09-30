@@ -179,7 +179,6 @@
               {month}
             </div>
             <div
-            
             transition:fly={{ y: 100, duration: 300 }}>
               {#each selectedPrograms as program}
                 {#if program.months.includes(month)}

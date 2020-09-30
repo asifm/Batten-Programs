@@ -15,7 +15,7 @@
 </style>
 
 <div
-  class="flex mt-2 mb-2 transition duration-500 ease-in-out transform group program-tile hover:shadow-xl"
+  class="flex mt-2 mb-2 duration-300 group program-tile hover:shadow-xl"
   on:click>
   <div
     class="flex justify-center flex-shrink-0 w-4 pt-4 leading-5 opacity-25"
@@ -25,7 +25,7 @@
   <div
     class="rounded-r-md flex justify-between flex-1 text-black cursor-pointer {completed ? 'opacity-50' : 'opacity-100'}"
     style="background-color: {programTypeColor}">
-    <div class="flex-1 px-2.5 py-2 leading-5">
+    <div class="duration-300 flex-1 px-2.5 py-2 leading-5 group-hover:bg-gray-50">
       <p class="pb-1 text-lg font-medium tracking-tight">{name}</p>
       <p class="pb-2 text-base">{quickDescription}</p>
       <span
