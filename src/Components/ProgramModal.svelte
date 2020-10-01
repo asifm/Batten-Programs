@@ -40,7 +40,7 @@
         {name}
       </h4>
       <div class="flex mb-2 text-xs tracking-widest uppercase">
-        <span class="px-1.5 py-0.5 text-white bg-dd-orange rounded-bl-lg">
+        <span class="px-1.5 py-0.5 text-white bg-dd-orange-alt rounded-bl-lg">
           {programType}
         </span>
         <span class="px-1.5 py-0.5 bg-white text-dd-blue rounded-br-lg">
@@ -58,10 +58,10 @@
       <div>{description}</div>
 
       <button
-        class="px-2 py-1 -ml-2 text-sm font-normal tracking-tight text-left uppercase duration-300 bg-white border rounded group border-dd-blue text-dd-blue-light hover:bg-dd-orange">
+        class="px-2 py-1 -ml-2 text-sm font-black tracking-wide text-left uppercase duration-300 bg-white border rounded-lg group border-dd-blue text-dd-blue-light hover:bg-dd-blue hover:text-dd-blue-100">
         <a href={link} target="_blank">
           <span>Schedule, Registration and Other Details</span>&nbsp;<svg
-            class="inline-block w-6 h-6 text-gray-400 group-hover:text-black "
+            class="inline-block w-6 h-6 text-gray-400 group-hover:text-dd-blue-100 "
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"><path

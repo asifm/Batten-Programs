@@ -199,7 +199,7 @@
         <div
           id="program-modal"
           transition:slide={{ y: -100 }}
-          class="fixed top-0 right-0 z-30 w-11/12 max-w-full max-h-full overflow-auto rounded shadow-lg sm:w-4/5 md:w-1/2 lg:w-1/3">
+          class="fixed z-30 w-11/12 max-w-full max-h-full overflow-auto transform rounded shadow-lg top-20 sm:w-4/5 md:w-1/2 lg:w-1/3">
           <ProgramModal
             audience={modalData.audience}
             description={modalData.description}

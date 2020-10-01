@@ -16,7 +16,7 @@ exports.customColors = {
     300: '#F5C799',
     400: '#ED9C4D',
     default: '#E57200',
-    600: '#CE6700',
+    alt: '#eb5f0c',
   },
   // https://www.htmlcsscolor.com/hex/84bd00
   citrus: '#9dd619',
