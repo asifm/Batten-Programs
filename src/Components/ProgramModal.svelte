@@ -58,10 +58,10 @@
       <div>{description}</div>
 
       <button
-        class="px-2 py-1 -ml-2 text-sm font-bold text-left uppercase duration-300 bg-white border rounded shadow-md border-dd-blue text-dd-blue-light hover:bg-dd-orange hover:text-white">
+        class="px-2 py-1 -ml-2 text-sm font-normal tracking-tight text-left uppercase duration-300 bg-white border rounded group border-dd-blue text-dd-blue-light hover:bg-dd-orange">
         <a href={link} target="_blank">
-          <span>Program Schedule, Registration and Other Details</span>&nbsp;<svg
-            class="inline-block w-5 h-5 text-gray-500"
+          <span>Schedule, Registration and Other Details</span>&nbsp;<svg
+            class="inline-block w-6 h-6 text-gray-400 group-hover:text-black "
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"><path
