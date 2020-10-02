@@ -59,7 +59,7 @@ function parseData(data) {
           name: record['Program Name'],
           openTo: record['Open To'],
           programType: record['Program Type'],
-          programTypeColor: record['Program Type Color'],
+          programTypeColor: record['Program Type New Color'],
           quickDescription: record['Quick Description'],
           start: startDate.getTime(),
           end: endDate.getTime(),
