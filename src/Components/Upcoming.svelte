@@ -27,7 +27,7 @@
           {program.name}
         </div>
 
-        <div class="px-3 mt-1">
+        <div class="mt-1">
           <span
             class="border border-dd-blue-200 bg-yellow-100 px-1.5 py-0.5
               tracking-widest text-xs text-black uppercase rounded-bl-md">{getFormattedDateFromEpoch(program.start)}
@@ -46,7 +46,7 @@
             <path
               d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" /></svg>
         </div>
-        <div class="px-3 duration-500 group-hover:text-white">
+        <div class="px-1 duration-500 group-hover:text-white">
           <p>{program.quickDescription}</p>
         </div>
       </div>
