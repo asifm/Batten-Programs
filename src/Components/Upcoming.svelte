@@ -16,13 +16,13 @@
 </script>
 
 <div class="p-5">
-  <h3>Upcoming Programs and Events</h3>
+  <h3 class="text-2xl text-dd-orange">Upcoming Programs and Events</h3>
   {#each selectedPrograms as program, i}
     <a href={program.link} target="_blank">
       <div
         class="pb-2 mb-2 duration-500 transform border-b rounded shadow-sm cursor-pointer group hover:shadow-lg hover:bg-dd-blue-alt">
         <div
-          class="p-2 text-sm font-bold tracking-widest uppercase rounded"
+          class="p-2 font-bold tracking-widest uppercase rounded"
           style="background-color:{program.programTypeColor}">
           {program.name}
         </div>
