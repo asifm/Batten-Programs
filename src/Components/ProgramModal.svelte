@@ -36,7 +36,7 @@
         </svg>
       </button>
       <h4
-        class="text-xl font-black leading-tight md:text-2xl lg:text-3xl text-dd-blue-light">
+        class="text-xl font-black leading-tight md:text-2xl lg:text-3xl text-dd-blue-alt">
         {name}
       </h4>
       <div class="flex mb-2 text-xs tracking-widest uppercase">
@@ -51,16 +51,17 @@
       </div>
     </div>
     <div class="px-6 pt-2 pb-4 space-y-2 font-light bg-yellow-50 ">
-      <div class="pt-1 font-sans text-xs tracking-wider uppercase">
-        Who it is for:
-        <span class="font-black">{audience}</span>
+      <div class="flex pt-1 space-x-3 text-xs tracking-wide uppercase">
+        <div>Who it is for</div>
+        <div class="font-black">{audience}</div>
       </div>
-      <div>{description}</div>
+
+      <div class="text-base lg:text-lg">{description}</div>
 
       <button
-        class="px-2 py-1 -ml-2 text-sm font-black tracking-wide text-left uppercase duration-300 bg-white border rounded-lg group border-dd-blue text-dd-blue-light hover:bg-dd-blue hover:text-dd-blue-100">
+        class="px-2 py-1 -ml-2 text-sm font-black tracking-wide text-left uppercase duration-300 bg-white border rounded-lg group border-dd-blue-200 text-dd-blue-alt hover:bg-dd-blue hover:text-dd-blue-100">
         <a href={link} target="_blank">
-          <span>Schedule, Registration and Other Details</span>&nbsp;<svg
+          <span>Schedule, Registration & Other Details</span>&nbsp;<svg
             class="inline-block w-6 h-6 text-gray-400 group-hover:text-dd-blue-100 "
             fill="currentColor"
             viewBox="0 0 20 20"

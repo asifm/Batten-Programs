@@ -20,7 +20,7 @@
   {#each selectedPrograms as program, i}
     <a href={program.link} target="_blank">
       <div
-        class="pb-2 mb-2 duration-500 transform border-b rounded shadow-sm cursor-pointer group hover:shadow-lg hover:bg-dd-blue-light">
+        class="pb-2 mb-2 duration-500 transform border-b rounded shadow-sm cursor-pointer group hover:shadow-lg hover:bg-dd-blue-alt">
         <div
           class="p-2 text-sm font-bold tracking-widest uppercase rounded"
           style="background-color:{program.programTypeColor}">
