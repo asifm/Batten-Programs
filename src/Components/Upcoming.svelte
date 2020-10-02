@@ -20,14 +20,14 @@
   {#each selectedPrograms as program, i}
     <a href={program.link} target="_blank">
       <div
-        class="pb-2 mb-2 duration-500 transform border-b rounded shadow-sm cursor-pointer group hover:shadow-lg hover:bg-dd-blue-alt">
+        class="pb-2 mb-2 duration-300 transform border-b rounded shadow-sm cursor-pointer group hover:shadow-lg hover:bg-dd-orange">
         <div
           class="p-2 font-bold tracking-widest uppercase rounded"
           style="background-color:{program.programTypeColor}">
           {program.name}
         </div>
 
-        <div class="mt-1">
+        <div class="px-2 mt-1">
           <span
             class="border border-dd-blue-200 bg-yellow-100 px-1.5 py-0.5
               tracking-widest text-xs text-black uppercase rounded-bl-md">{getFormattedDateFromEpoch(program.start)}
@@ -46,7 +46,7 @@
             <path
               d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" /></svg>
         </div>
-        <div class="px-1 duration-500 group-hover:text-white">
+        <div class="px-2 duration-500 group-hover:text-white">
           <p>{program.quickDescription}</p>
         </div>
       </div>
