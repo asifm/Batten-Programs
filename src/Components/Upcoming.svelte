@@ -1,7 +1,7 @@
 <script>
   // If I need to parse multiple params https://css-tricks.com/snippets/javascript/get-url-variables/
   import { dataPromise } from '../data/parseAirtableData';
-  import { getFormattedDateFromEpoch } from '../helpers';
+  import { getFormattedDate } from '../helpers';
 
   // Append ?n to url to show n programs
   let param = location.search;
@@ -39,9 +39,15 @@
           <div class="flex">
             <span
               class="border border-dd-blue-300 bg-yellow-100 px-1.5 py-0.5
-                tracking-widest text-xs text-black uppercase rounded-bl-md">{getFormattedDateFromEpoch(program.start)}
-              –
-              {getFormattedDateFromEpoch(program.end)}</span>
+                tracking-widest text-xs text-black uppercase rounded-bl-md">
+              {#if program.startDate.getTime() == program.endDate.getTime()}
+                {getFormattedDate(program.startDate)}
+              {:else}
+                {getFormattedDate(program.startDate)}
+                –
+                {getFormattedDate(program.endDate)}
+              {/if}
+            </span>
 
             <span
               class="border border-dd-orange px-1.5 py-0.5 tracking-widest text-xs

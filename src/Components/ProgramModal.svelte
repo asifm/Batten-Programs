@@ -1,13 +1,13 @@
 <script>
-  import { getFormattedDateFromEpoch } from '../helpers';
+  import { getFormattedDate } from '../helpers';
   export let name;
   export let description;
   export let link;
   export let programType;
   export let programTypeColor;
   export let audience;
-  export let start;
-  export let end;
+  export let startDate;
+  export let endDate;
 
   import { createEventDispatcher } from 'svelte';
 
@@ -44,9 +44,13 @@
           {programType}
         </span>
         <span class="px-1.5 py-0.5 bg-white text-dd-blue rounded-br-lg">
-          {getFormattedDateFromEpoch(start)}
-          –
-          {getFormattedDateFromEpoch(end)}
+          {#if startDate.getTime() == endDate.getTime()}
+            {getFormattedDate(startDate)}
+          {:else}
+            {getFormattedDate(startDate)}
+            –
+            {getFormattedDate(endDate)}
+          {/if}
         </span>
       </div>
     </div>
@@ -59,7 +63,7 @@
       <div class="text-base lg:text-lg">{description}</div>
 
       <button
-        class="px-2 py-1 -ml-2 text-sm font-black tracking-wide text-left uppercase duration-300 bg-white border rounded-lg group border-dd-blue-200 text-dd-blue-alt hover:bg-dd-blue hover:text-dd-blue-100">
+        class="px-2 py-1 -ml-2 text-sm font-black tracking-wide text-left uppercase duration-300 bg-white border rounded-md group border-dd-blue-200 text-dd-blue-alt hover:bg-dd-blue hover:text-dd-blue-100">
         <a href={link} target="_blank">
           <span>Schedule, Registration & Other Details</span>&nbsp;<svg
             class="inline-block w-6 h-6 text-gray-400 group-hover:text-dd-blue-100 "
