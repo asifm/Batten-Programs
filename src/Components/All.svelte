@@ -178,8 +178,7 @@
               </svg>
               {month}
             </div>
-            <div
-            transition:fly={{ y: 100, duration: 300 }}>
+            <div transition:fly={{ y: 100, duration: 300 }}>
               {#each selectedPrograms as program}
                 {#if program.months.includes(month)}
                   <ProgramTile
@@ -203,12 +202,12 @@
           <ProgramModal
             audience={modalData.audience}
             description={modalData.description}
-            end={modalData.end}
+            endDate={modalData.endDate}
             link={modalData.link}
             name={modalData.name}
             programType={modalData.programType}
             programTypeColor={modalData.programTypeColor}
-            start={modalData.start}
+            startDate={modalData.startDate}
             on:closeModalEvent={closeModal} />
         </div>
       {/if}

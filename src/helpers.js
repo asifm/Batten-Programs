@@ -8,8 +8,10 @@ export function stringifyArr(obj, prop) {
   return stringProp;
 }
 
-export function getFormattedDateFromEpoch(epoch) {
-  let month = Intl.DateTimeFormat('en-US', { month: 'short' }).format(epoch);
-  let date = new Date(epoch).getDate();
+export function getFormattedDate(dateObject) {
+  let month = Intl.DateTimeFormat('en-US', { month: 'short' }).format(
+    dateObject,
+  );
+  let date = dateObject.getDate();
   return `${month} ${date}`;
 }

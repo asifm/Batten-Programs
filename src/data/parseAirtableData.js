@@ -4,8 +4,20 @@ import { stringifyArr } from '../helpers';
 const endpoint =
   'https://batten-programs.netlify.app/.netlify/functions/getdata?view=Web';
 
-let monthsArr = ['January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',];
+let monthsArr = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
 
 const today = new Date();
 let startDate;
@@ -38,8 +50,9 @@ function parseData(data) {
       record.hasOwnProperty('End')
     ) {
       if (record.Start && record.End) {
-        startDate = new Date(record.Start);
-        endDate = new Date(record.End);
+        // Date objects will be created from strings of format '2020-10-28'.  This is how Airtable API returns dates.
+        startDate = parseISOString(record.Start);
+        endDate = parseISOString(record.End);
         outputArr.push({
           id: record.id,
           // Some properties are required by highcharts gantt: start (in epoch time), end (in epoch time), color, name
@@ -61,8 +74,8 @@ function parseData(data) {
           programType: record['Program Type'],
           programTypeColor: record['Program Type New Color'],
           quickDescription: record['Quick Description'],
-          start: startDate.getTime(),
-          end: endDate.getTime(),
+          startDate,
+          endDate,
         });
       }
     }
@@ -81,4 +94,9 @@ function getProgramMonths(startDate, endDate) {
   const firstMonth = startDate.getMonth();
   const lastMonth = endDate.getMonth();
   return monthsArr.slice(firstMonth, lastMonth + 1);
+}
+
+function parseISOString(s) {
+  var b = s.split(/\D+/);
+  return new Date(b[0], --b[1], b[2]);
 }
