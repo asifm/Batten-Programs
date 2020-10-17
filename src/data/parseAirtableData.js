@@ -57,6 +57,7 @@ function parseData(data) {
           id: record.id,
           // Some properties are required by highcharts gantt: start (in epoch time), end (in epoch time), color, name
           // Can rename those if highchart is not used
+          landing: record['Show on Landing Page'],
           alumni: record['Open to Alumni'],
           audience: record['Primary Audience'],
           completed: today > endDate ? true : false,

@@ -1,17 +1,11 @@
 <script>
-  // If I need to parse multiple params https://css-tricks.com/snippets/javascript/get-url-variables/
   import { dataPromise } from '../data/parseAirtableData';
   import { getFormattedDate } from '../helpers';
 
-  // Append ?n to url to show n programs
-  let param = location.search;
-  let numProgramsToShow = param == '' ? 4 : +param.slice(1, param.length);
   let selectedPrograms = [];
   // todo: move async operation to html
   dataPromise.then(resolvedData => {
-    selectedPrograms = resolvedData[0]
-      .filter(el => !el.completed)
-      .slice(0, numProgramsToShow);
+    selectedPrograms = resolvedData[0].filter(el => el.landing);
   });
 </script>
 
