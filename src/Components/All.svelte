@@ -30,6 +30,7 @@
   dataPromise.then(resolvedData => {
     programs = resolvedData[0];
     // Concat because element 'All Types' exists in array
+    // console.log(resolvedData);
     programTypes = programTypes.concat(resolvedData[1]);
     programMonths = resolvedData[2];
     dataready = true;

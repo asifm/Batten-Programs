@@ -1,10 +1,10 @@
 // import { customColors } from './colors';
-import { stringifyArr } from '../helpers';
+// import { stringifyArr } from '../helpers';
 
 const endpoint =
   'https://batten-programs.netlify.app/.netlify/functions/getdata?view=Web';
 
-let monthsArr = [
+let allMonthsArr = [
   'January',
   'February',
   'March',
@@ -68,7 +68,7 @@ function parseData(data) {
           link: record.URL,
           // mode: stringifyArr(record, 'Delivery Mode'),
           // todo: just months is good enough for now, but really need year-months for long-term use
-          // create something like {2020: [..., ...], 2021: [...]}
+          // create something like {2020: [..., ...], 2021: [...]}?
           months: getProgramMonths(startDate, endDate),
           name: record['Program Name'],
           openTo: record['Open To'],
@@ -85,16 +85,17 @@ function parseData(data) {
     ...new Set(outputArr.map(el => el.programType).flat()),
   ].sort();
 
+  // Currently sorting is controlled by Airtable view. Which is perhaps good enough.
   // todo: make it more robust to account for correct sorting, year etc.
   programMonthsArr = [...new Set(outputArr.map(el => el.months).flat())];
-
+  // console.log(programMonthsArr);
   return [outputArr, programTypesArr, programMonthsArr];
 }
 
 function getProgramMonths(startDate, endDate) {
   const firstMonth = startDate.getMonth();
   const lastMonth = endDate.getMonth();
-  return monthsArr.slice(firstMonth, lastMonth + 1);
+  return allMonthsArr.slice(firstMonth, lastMonth + 1);
 }
 
 function parseISOString(s) {
