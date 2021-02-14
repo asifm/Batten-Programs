@@ -27,7 +27,7 @@
   // Data of a single program for the modal window
   $: modalData = {};
 
-  dataPromise.then(resolvedData => {
+  dataPromise.then((resolvedData) => {
     programs = resolvedData[0];
     // Concat because element 'All Types' exists in array
     // console.log(resolvedData);
@@ -51,7 +51,7 @@
         selectedPrograms = programs;
       } else {
         selectedPrograms = programs.filter(
-          el => el.programType == programTypeSelected,
+          (el) => el.programType == programTypeSelected,
         );
       }
     }
@@ -78,7 +78,7 @@
     alumniToggle = !alumniToggle;
 
     if (alumniToggle) {
-      selectedPrograms = programs.filter(el => el.alumni);
+      selectedPrograms = programs.filter((el) => el.alumni);
     } else {
       selectedPrograms = programs;
     }
@@ -113,7 +113,8 @@
   <!-- Append '?header' to url to show header -->
   {#if location.search === '?header'}
     <div
-      class="mb-3 leading-tight text-center shadow bg-tangerine text-dd-blue">
+      class="mb-3 leading-tight text-center shadow bg-tangerine text-dd-blue"
+    >
       <div class="container px-4 py-1 mx-auto">
         <h2 class="font-black tracking-wide">Batten Institute Programs</h2>
         <h3>Fall 2020–21</h3>
@@ -124,20 +125,22 @@
   <!-- New section: ProgramTiles -->
   <div class="container px-3 mx-auto">
     {#if dataready}
-      <div class="grid grid-cols-2 gap-3 mb-10">
+      <div class="flex gap-6 mb-10">
         <!-- Dropdown -->
         <div class="z-20 flex flex-row gap-4" id="dropdown-container">
           <ProgramTypeDropdown
             {programTypes}
             {programTypeSelected}
             {dropdownOptsHidden}
-            on:click={handleDropdownClick} />
+            on:click={handleDropdownClick}
+          />
         </div>
 
         <!-- Toggle -->
         <div
           class="self-center col-span-1 text-right"
-          id="alumnitoggle-container">
+          id="alumnitoggle-container"
+        >
           <span class="mr-1 text-sm text-gray-700">Open to alumni</span>
           <span
             role="checkbox"
@@ -146,36 +149,51 @@
             aria-label="Open to alumni"
             on:click={handleAlumniToggle}
             class="align-middle relative inline-flex flex-shrink-0 h-5
-              transition-colors duration-200 ease-in-out {alumniToggle ? 'bg-dd-blue-200' : 'bg-dd-blue-100'}
+              transition-colors duration-200 ease-in-out {alumniToggle
+              ? 'bg-dd-blue-200'
+              : 'bg-dd-blue-100'}
               border-2 border-transparent rounded-full cursor-pointer w-12 focus:outline-none
-              focus:shadow-outline">
+              focus:shadow-outline"
+          >
             <span
               aria-hidden="true"
               class="inline-block w-4 h-4 transition duration-200 ease-in-out
-                transform {alumniToggle ? 'translate-x-8' : 'translate-x-0'} bg-white
-                rounded-full shadow" />
+                transform {alumniToggle
+                ? 'translate-x-8'
+                : 'translate-x-0'} bg-white
+                rounded-full shadow"
+            />
           </span>
+        </div>
+        <div
+          class="p-2 text-sm border-2 rounded-md border-dd-blue hover:shadow-sm"
+        >
+          See past programs
         </div>
       </div>
 
       <div
         class="grid grid-cols-1 sm:gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
-        id="program-tiles-container">
+        id="program-tiles-container"
+      >
         {#each programMonths as month}
           <div class="col-span-1" transition:fade>
             <div
-              class="sticky top-0 z-10 p-3 font-bold tracking-widest uppercase bg-white text-dd-blue">
+              class="sticky top-0 z-10 p-3 font-bold tracking-widest uppercase bg-white text-dd-blue"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 class="inline w-6 h-6"
                 viewBox="0 0 24 24"
-                stroke="currentColor">
+                stroke="currentColor"
+              >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="1"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
               </svg>
               {month}
             </div>
@@ -188,7 +206,8 @@
                     programType={program.programType}
                     programTypeColor={program.programTypeColor}
                     quickDescription={program.quickDescription}
-                    on:click={() => handleClickOnTile(program)} />
+                    on:click={() => handleClickOnTile(program)}
+                  />
                 {/if}
               {/each}
             </div>
@@ -199,7 +218,8 @@
         <div
           id="program-modal"
           transition:slide={{ y: -100 }}
-          class="fixed z-30 w-11/12 max-w-full max-h-full overflow-auto transform -translate-x-1/2 rounded shadow-lg left-1/2 top-15 sm:w-4/5 md:w-1/2 lg:w-1/3">
+          class="fixed z-30 w-11/12 max-w-full max-h-full overflow-auto transform -translate-x-1/2 rounded shadow-lg left-1/2 top-15 sm:w-4/5 md:w-1/2 lg:w-1/3"
+        >
           <ProgramModal
             audience={modalData.audience}
             description={modalData.description}
@@ -209,7 +229,8 @@
             programType={modalData.programType}
             programTypeColor={modalData.programTypeColor}
             startDate={modalData.startDate}
-            on:closeModalEvent={closeModal} />
+            on:closeModalEvent={closeModal}
+          />
         </div>
       {/if}
     {/if}
