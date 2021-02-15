@@ -14,7 +14,7 @@
   const dispatch = createEventDispatcher();
 </script>
 
-<section class="text-center rounded-lg program-modal">
+<section class="rounded-lg program-modal">
   <div class="flex-1">
     <div
       class="relative px-6 py-2 shadow-md"
@@ -65,26 +65,27 @@
         </div>
       {/if}
 
-      <div class="p-3 text-base lg:text-lg">{description}</div>
-
-      <button
-        class="px-2 py-1 -ml-2 text-sm font-normal tracking-wider uppercase duration-300 bg-white border rounded-md shadow-lg group border-dd-blue-400 text-dd-blue-alt hover:bg-dd-blue hover:text-dd-blue-100"
-      >
-        <a href={link} target="_blank">
-          <span>Schedule, Registration & Other Details</span>&nbsp;<svg
-            class="inline-block w-6 h-6 text-gray-400 group-hover:text-dd-blue-100 "
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
-            />
-            <path
-              d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
-            /></svg
-          >
-        </a>
-      </button>
+      <div class="p-4 text-base">{description}</div>
+      <div class="text-right">
+        <button
+          class="px-2 py-1 -ml-2 text-sm font-normal tracking-wider uppercase duration-300 bg-white border rounded-md shadow-md group border-dd-blue-400 text-dd-blue-alt hover:bg-dd-blue hover:text-dd-blue-100"
+        >
+          <a href={link} target="_blank">
+            <span>Schedule & Registration</span>&nbsp;<svg
+              class="inline-block w-6 h-6 text-gray-400 group-hover:text-dd-blue-100 "
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+              />
+              <path
+                d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
+              /></svg
+            >
+          </a>
+        </button>
+      </div>
     </div>
   </div>
 </section>
