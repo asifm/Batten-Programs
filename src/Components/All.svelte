@@ -1,5 +1,4 @@
 <script>
-  import { fade, fly, slide } from 'svelte/transition';
   import Tailwindcss from './Tailwindcss.svelte';
 
   import ProgramTypeDropdown from './ProgramTypeDropdown.svelte';
@@ -153,7 +152,7 @@
               ? 'bg-dd-blue-200'
               : 'bg-dd-blue-100'}
               border-2 border-transparent rounded-full cursor-pointer w-12 focus:outline-none
-              focus:shadow-outline"
+              focus:ring"
           >
             <span
               aria-hidden="true"
@@ -177,7 +176,7 @@
         id="program-tiles-container"
       >
         {#each programMonths as month}
-          <div class="col-span-1" transition:fade>
+          <div class="col-span-1">
             <div
               class="sticky top-0 z-10 p-3 font-bold tracking-widest uppercase bg-white text-dd-blue"
             >
@@ -197,7 +196,7 @@
               </svg>
               {month}
             </div>
-            <div transition:fly={{ y: 100, duration: 300 }}>
+            <div>
               {#each selectedPrograms as program}
                 {#if program.months.includes(month)}
                   <ProgramTile
@@ -217,8 +216,7 @@
       {#if !modalHidden}
         <div
           id="program-modal"
-          transition:slide={{ y: -100 }}
-          class="fixed z-30 w-11/12 max-w-full max-h-full overflow-auto transform -translate-x-1/2 rounded shadow-lg left-1/2 top-15 sm:w-4/5 md:w-1/2 lg:w-1/3"
+          class="fixed z-30 w-11/12 max-w-full max-h-full overflow-auto transform -translate-x-1/2 rounded shadow-lg left-1/2 top-16 sm:w-4/5 md:w-1/2 lg:w-1/3"
         >
           <ProgramModal
             audience={modalData.audience}

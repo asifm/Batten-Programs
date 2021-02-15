@@ -14,7 +14,7 @@
     <div class="rounded-md shadow-sm">
       <button
         type="button"
-        class="inline-flex px-4 py-2 text-sm leading-5 transition duration-150 ease-in-out rounded-md bg-dd-blue-100 hover:text-gray-700 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-dd-blue-50"
+        class="inline-flex px-4 py-2 text-sm leading-5 transition duration-150 ease-in-out rounded-md bg-dd-blue-100 hover:text-gray-700 focus:outline-none focus:border-blue-300 focus:ring-blue active:bg-dd-blue-50"
         id="dd-button"
         aria-haspopup="true"
         aria-expanded="true"

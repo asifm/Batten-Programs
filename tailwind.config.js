@@ -11,7 +11,7 @@ module.exports = {
       './src/**/*.ts',
     ],
     options: {
-      // can whitelist class names so they don't get purged
+      // use property 'safelist' for class names that should not be purged;
     },
   },
   theme: {
@@ -29,11 +29,5 @@ module.exports = {
   },
   variants: {
     boxShadow: ['group-focus', 'hover'],
-  },
-  // Turning off because the plugin crashes the rollup-based build process
-  plugins: [require('@tailwindcss/ui')],
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
   },
 };

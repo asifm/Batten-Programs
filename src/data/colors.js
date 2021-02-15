@@ -6,7 +6,7 @@ exports.customColors = {
     200: '#C8CBD2',
     300: '#A7ABB7',
     400: '#656C81',
-    default: '#141e3c',
+    DEFAULT: '#141e3c',
     alt: '#202946',
   },
   // https://www.htmlcsscolor.com/hex/e57200
@@ -15,7 +15,7 @@ exports.customColors = {
     200: '#F9DCBF',
     300: '#F5C799',
     400: '#ED9C4D',
-    default: '#E57200',
+    DEFAULT: '#E57200',
     alt: '#eb5f0c',
   },
   // https://www.htmlcsscolor.com/hex/84bd00
@@ -49,7 +49,3 @@ exports.palette = [
   '#a5d6a7',
   '#afb42b',
 ];
-
-//   learn: 'rgba(229, 114, 0, 0.8)',
-//   experience: 'rgba(242, 205, 0, 0.8)',
-//   connect: 'rgba(157, 214, 25, 0.8)',
