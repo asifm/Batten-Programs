@@ -1,6 +1,6 @@
 <script>
 	import Tailwindcss from './Tailwindcss.svelte';
-
+	import { showMonths } from '../data/showMonths';
 	import ProgramTypeDropdown from './ProgramTypeDropdown.svelte';
 	import ProgramTile from './ProgramTile.svelte';
 	import ProgramModal from './ProgramModal.svelte';
@@ -179,7 +179,7 @@
 				class="grid grid-cols-1 sm:gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
 				id="program-tiles-container"
 			>
-				{#each programMonths as month}
+				{#each showMonths as month}
 					<div class="col-span-1">
 						<div
 							class="sticky top-0 z-10 p-3 font-bold tracking-widest uppercase bg-white text-dd-blue"
