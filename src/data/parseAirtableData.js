@@ -28,14 +28,14 @@ let programTypes;
 let programMonths;
 
 export let dataPromise = fetch(endpoint)
-	.then((response) => response.json())
-	.then((data) => {
+	.then(response => response.json())
+	.then(data => {
 		[output, programTypes, programMonths] = parseData(data);
 		return [output, programTypes, programMonths];
 	});
 
 function parseData(data) {
-	let apiRecordsArr = data.records.map((record) => {
+	let apiRecordsArr = data.records.map(record => {
 		record.fields['id'] = record.id;
 		return record.fields;
 	});
@@ -43,7 +43,7 @@ function parseData(data) {
 	let programTypesArr = [];
 	let programMonthsArr = [];
 
-	apiRecordsArr.forEach((record) => {
+	apiRecordsArr.forEach(record => {
 		if (
 			record['Show on Website'] &&
 			record.hasOwnProperty('Start') &&
@@ -55,8 +55,6 @@ function parseData(data) {
 				endDate = parseISOString(record.End);
 				outputArr.push({
 					id: record.id,
-					// Some properties are required by highcharts gantt: start (in epoch time), end (in epoch time), color, name
-					// Can rename those if highchart is not used
 					landing: record['Show on Landing Page'],
 					alumni: record['Open to Alumni'],
 					audience: record['Primary Audience'],
@@ -64,7 +62,6 @@ function parseData(data) {
 					// contactEmails: record['Contact Emails'],
 					// contactNames: record['Contact Names'],
 					description: record.Description,
-					// end: endDate.getTime(),
 					link: record.URL,
 					// mode: stringifyArr(record, 'Delivery Mode'),
 					// todo: just months is good enough for now, but really need year-months for long-term use
@@ -73,7 +70,7 @@ function parseData(data) {
 					name: record['Program Name'],
 					openTo: record['Open To'],
 					programType: record['Program Type'],
-					programTypeColor: record['Program Type New Color'],
+					programTypeColor: record['Program Type Color'],
 					quickDescription: record['Quick Description'],
 					startDate,
 					endDate,
@@ -82,12 +79,12 @@ function parseData(data) {
 		}
 	});
 	programTypesArr = [
-		...new Set(outputArr.map((el) => el.programType).flat()),
+		...new Set(outputArr.map(el => el.programType).flat()),
 	].sort();
 
 	// Currently sorting is controlled by Airtable view. Which is perhaps good enough.
 	// todo: make it more robust to account for correct sorting, year etc.
-	programMonthsArr = [...new Set(outputArr.map((el) => el.months).flat())];
+	programMonthsArr = [...new Set(outputArr.map(el => el.months).flat())];
 	// console.log(programMonthsArr);
 	return [outputArr, programTypesArr, programMonthsArr];
 }
