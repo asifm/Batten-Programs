@@ -85,14 +85,20 @@ function parseData(data) {
 	// Currently sorting is controlled by Airtable view. Which is perhaps good enough.
 	// todo: make it more robust to account for correct sorting, year etc.
 	programMonthsArr = [...new Set(outputArr.map(el => el.months).flat())];
-	// console.log(programMonthsArr);
 	return [outputArr, programTypesArr, programMonthsArr];
 }
 
 function getProgramMonths(startDate, endDate) {
 	const firstMonth = startDate.getMonth();
 	const lastMonth = endDate.getMonth();
-	return allMonthsArr.slice(firstMonth, lastMonth + 1);
+	if (firstMonth > lastMonth) {
+		return [...allMonthsArr, ...allMonthsArr].slice(
+			firstMonth,
+			lastMonth + 13,
+		);
+	} else {
+		return allMonthsArr.slice(firstMonth, lastMonth + 1);
+	}
 }
 
 function parseISOString(s) {
