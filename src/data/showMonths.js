@@ -1,7 +1,7 @@
 // The months listed here will be shown on the webpage, in the same order.
 export const showMonths = [
-	'June',
-	'July',
+	// 'June',
+	// 'July',
 	'August',
 	'September',
 	'October',
