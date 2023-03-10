@@ -16,10 +16,11 @@ const allMonthsArr = [
 	'December',
 ];
 
+const current_origin = window.location.origin;
 const endpoint =
 	// 'https://batten-programs.netlify.app/.netlify/functions/getdata?view=Web';
-	'https://token--batten-programs.netlify.app/.netlify/functions/getdata?view=Web';
-
+	current_origin + '/.netlify/functions/getdata?view=Web';
+console.log('endpoint', endpoint);
 const today = new Date();
 let startDate;
 let endDate;
