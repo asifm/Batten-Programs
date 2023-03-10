@@ -4,12 +4,9 @@ var Airtable = require('airtable');
 Airtable.configure({
   endpointUrl: 'https://api.airtable.com',
   apiKey: process.env.AIRTABLE_TOKEN,
-  // apiKey: process.env.AIRTABLE_API_KEY,
 });
 
 var base = Airtable.base('appml7E91jjekxPeY');
-
-console.log('Airtable Token', process.env.AIRTABLE_TOKEN);
 
 exports.handler = function (event, context, callback) {
   const allRecords = [];
