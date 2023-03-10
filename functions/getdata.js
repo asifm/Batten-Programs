@@ -12,7 +12,6 @@ exports.handler = function (event, context, callback) {
   const allRecords = [];
   base('Programs')
     .select({
-      maxRecords: 100,
       view: event.queryStringParameters.view,
     })
     .eachPage(
