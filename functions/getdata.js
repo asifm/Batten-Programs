@@ -6,7 +6,7 @@ Airtable.configure({
   apiKey: process.env.AIRTABLE_TOKEN,
 });
 var base = Airtable.base('appml7E91jjekxPeY');
-
+console.log('Starting function', process.env.AIRTABLE_TOKEN);
 exports.handler = function (event, context, callback) {
   const allRecords = [];
   base('Programs')
