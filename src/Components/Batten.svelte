@@ -27,7 +27,7 @@
 	$: modalData = {};
 
 	dataPromise.then((resolvedData) => {
-		programs = resolvedData[0].filter(el => el.showUnder == 'Batten');
+		programs = resolvedData[0].filter(el => el.showUnder.includes('Batten'));
 		// Concat because element 'All Types' exists in array
 		// console.log(resolvedData);
 		programTypes = programTypes.concat(resolvedData[1]);
