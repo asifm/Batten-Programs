@@ -7,7 +7,8 @@
     import BattenFeatured from "./Components/BattenFeatured.svelte";
     import Mayo from "./Components/Mayo.svelte";
     import MayoFeatured from "./Components/MayoFeatured.svelte";
-    
+    import VC from "./Components/VC.svelte";
+
     let page;
     router("/upcoming", () => (page = Upcoming));
     router("/all", () => (page = All));
