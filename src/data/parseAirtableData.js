@@ -2,19 +2,8 @@
 // import { stringifyArr } from '../helpers';
 
 const allMonthsArr = [
-	'January',
-	'February',
-	'March',
-	'April',
-	'May',
-	'June',
-	'July',
-	'August',
-	'September',
-	'October',
-	'November',
-	'December',
-];
+	'January', 'February', 'March', 'April', 'May', 'June', 'July', 
+	'August', 'September', 'October', 'November', 'December' ];
 
 const current_origin = window.location.origin;
 const endpoint = current_origin + '/.netlify/functions/getdata?view=Web';
@@ -47,7 +36,7 @@ function parseData(data) {
 
 	apiRecordsArr.forEach(record => {
 		if (
-			record['Show on Website'] &&
+			(record['Show Under'].length != 0) &&
 			record.hasOwnProperty('Start') &&
 			record.hasOwnProperty('End')
 		) {
@@ -57,13 +46,15 @@ function parseData(data) {
 				endDate = parseISOString(record.End);
 				outputArr.push({
 					id: record.id,
-					landing: record['Show on Landing Page'],
+					showunder: record['Show Under'],
+					// landing: record['Show on Landing Page'],
 					alumni: record['Open to Alumni'],
 					audience: record['Primary Audience'],
 					completed: today > endDate ? true : false,
 					// contactEmails: record['Contact Emails'],
 					// contactNames: record['Contact Names'],
-					description: record.Description,
+					// If no description, use quick description
+					description: record.Description || record['Quick Description'],
 					link: record.URL,
 					// mode: stringifyArr(record, 'Delivery Mode'),
 					// todo: just months is good enough for now, but really need year-months for long-term use
