@@ -36,7 +36,7 @@ function parseData(data) {
 
 	apiRecordsArr.forEach(record => {
 		if (
-			(record['Show Under'].length != 0) &&
+			(record['Show Where'].length != 0) &&
 			record.hasOwnProperty('Start') &&
 			record.hasOwnProperty('End')
 		) {
@@ -46,8 +46,6 @@ function parseData(data) {
 				endDate = parseISOString(record.End);
 				outputArr.push({
 					id: record.id,
-					showUnder: record['Show Under'],
-					// landing: record['Show on Landing Page'],
 					alumni: record['Open to Alumni'],
 					audience: record['Primary Audience'],
 					completed: today > endDate ? true : false,
@@ -65,6 +63,7 @@ function parseData(data) {
 					programType: record['Program Type'],
 					programTypeColor: record['Program Type Color'],
 					quickDescription: record['Quick Description'],
+					showWhere: record['Show Where'],
 					startDate,
 					endDate,
 				});
