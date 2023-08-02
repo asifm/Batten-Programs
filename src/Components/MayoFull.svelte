@@ -1,5 +1,6 @@
 <script>
 	import Tailwindcss from './Tailwindcss.svelte';
+	import marked from 'marked';
 	import { showMonths } from '../data/showMonths';
 	import ProgramTypeDropdown from './ProgramTypeDropdown.svelte';
 	import ProgramTile from './ProgramTile.svelte';
@@ -27,7 +28,8 @@
 	$: modalData = {};
 
 	dataPromise.then((resolvedData) => {
-		programs = resolvedData[0].filter(el => el.showWhere.includes('Mayo Full'));
+		programs = resolvedData[0].filter(el => 
+			el.showWhere.includes('Mayo Full'));
 		// Concat because element 'All Types' exists in array
 		// console.log(resolvedData);
 		programTypes = programTypes.concat(resolvedData[1]);
@@ -225,7 +227,7 @@
 				>
 					<ProgramModal
 						audience={modalData.audience}
-						description={modalData.description}
+						description={marked.parse(modalData.description)}
 						endDate={modalData.endDate}
 						link={modalData.link}
 						name={modalData.name}

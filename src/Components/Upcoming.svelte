@@ -5,7 +5,8 @@
   let selectedPrograms = [];
   // todo: move async operation to html
   dataPromise.then(resolvedData => {
-    selectedPrograms = resolvedData[0].filter(el => el.showWhere.includes('Batten Featured'));
+    selectedPrograms = resolvedData[0].filter(el => 
+      el.showWhere.includes('Batten Featured'));
   });
 </script>
 
