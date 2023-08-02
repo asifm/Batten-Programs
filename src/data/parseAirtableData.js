@@ -46,7 +46,7 @@ function parseData(data) {
 				endDate = parseISOString(record.End);
 				outputArr.push({
 					id: record.id,
-					showunder: record['Show Under'],
+					showUnder: record['Show Under'],
 					// landing: record['Show on Landing Page'],
 					alumni: record['Open to Alumni'],
 					audience: record['Primary Audience'],
