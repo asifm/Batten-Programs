@@ -2,7 +2,12 @@
     import router from "page";
     import Upcoming from "./Components/Upcoming.svelte";
     import All from "./Components/All.svelte";
-
+    // New imports
+    import Batten from "./Components/Batten.svelte";
+    import BattenFeatured from "./Components/BattenFeatured.svelte";
+    import Mayo from "./Components/Mayo.svelte";
+    import MayoFeatured from "./Components/MayoFeatured.svelte";
+    
     let page;
     router("/upcoming", () => (page = Upcoming));
     router("/all", () => (page = All));
