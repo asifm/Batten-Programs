@@ -151,6 +151,11 @@
 						aria-checked="false"
 						aria-label="Open to alumni"
 						on:click={handleAlumniToggle}
+						on:keydown={(e) => {
+							if (e.key === 'Enter' || e.key === ' ') {
+								handleAlumniToggle();
+							}
+						}}
 						class="align-middle relative inline-flex flex-shrink-0 h-5
               transition-colors duration-200 ease-in-out {alumniToggle
 							? 'bg-dd-blue-200'
