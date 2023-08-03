@@ -1,4 +1,5 @@
 <script>
+  import { marked } from 'marked';
   import { getFormattedDate } from '../helpers';
   export let name;
   export let description;
@@ -65,7 +66,7 @@
         </div>
       {/if}
 
-      <div class="p-4 text-base">{description}</div>
+      <div class="p-4 text-base description">{@html marked.parse(description)}</div>
       <div class="text-right">
         <button
           class="px-2 py-1 -ml-2 text-sm font-normal tracking-wider uppercase duration-300 bg-white border rounded-md shadow-md group border-dd-blue-400 text-dd-blue-alt hover:bg-dd-blue hover:text-dd-blue-100"
