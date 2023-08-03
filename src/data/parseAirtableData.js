@@ -1,6 +1,3 @@
-// import { customColors } from './colors';
-// import { stringifyArr } from '../helpers';
-
 const allMonthsArr = [
 	'January', 'February', 'March', 'April', 'May', 'June', 'July', 
 	'August', 'September', 'October', 'November', 'December' ];
@@ -43,7 +40,7 @@ function parseData(data) {
 			if (record.Start && record.End) {
 				// Date objects will be created from strings of format '2020-10-28'.  This is how Airtable API returns dates.
 				startDate = parseISOString(record.Start);
-				endDate = parseISOString(record.End);
+				endDate = parseISOString(record.End || record.Start);
 				outputArr.push({
 					id: record.id,
 					alumni: record['Open to Alumni'],
@@ -93,7 +90,10 @@ function getProgramMonths(startDate, endDate) {
 	}
 }
 
+// Directly using new Date('2020-10-28') will assume GMT time and 
+// create a date object with timezone offset applied. Hence a special function.
 function parseISOString(s) {
 	var b = s.split(/\D+/);
+	// --b[1] because months are 0 indexed
 	return new Date(b[0], --b[1], b[2]);
 }
