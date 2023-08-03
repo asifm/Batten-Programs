@@ -24,7 +24,7 @@
 	let modalHidden = true;
 
 	// Data of a single program for the modal window
-	$: modalData = {};
+	let modalData;
 
 	dataPromise.then((resolvedData) => {
 		programs = resolvedData[0].filter(el => el.showWhere.includes('VC Full'));
