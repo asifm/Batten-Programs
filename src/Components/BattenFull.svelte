@@ -29,7 +29,6 @@
 	dataPromise.then((resolvedData) => {
 		programs = resolvedData[0].filter(el => el.showWhere.includes('Batten Full'));
 		// Concat because element 'All Types' exists in array
-		// console.log(resolvedData);
 		programTypes = programTypes.concat(resolvedData[1]);
 		programMonths = resolvedData[2];
 		dataready = true;
@@ -108,22 +107,6 @@
 <Tailwindcss />
 <svelte:window on:keydown={handleKeydown} on:click={handleGlobalClick} />
 <main>
-	<!-- header -->
-	<!-- Append '?header' to url to show header -->
-	{#if location.search === '?header'}
-		<div
-			class="mb-3 leading-tight text-center shadow bg-tangerine text-dd-blue"
-		>
-			<div class="container px-4 py-1 mx-auto">
-				<h2 class="font-black tracking-wide">
-					Batten Institute Programs
-				</h2>
-				<h3>Fall 2020–21</h3>
-			</div>
-		</div>
-	{/if}
-
-	<!-- New section: ProgramTiles -->
 	<div class="container px-3 mx-auto">
 		{#if dataready}
 			<div class="flex gap-6 mb-10">
@@ -157,27 +140,22 @@
 							}
 						}}
 						class="align-middle relative inline-flex flex-shrink-0 h-5
-              transition-colors duration-200 ease-in-out {alumniToggle
-							? 'bg-dd-blue-200'
-							: 'bg-dd-blue-100'}
-              border-2 border-transparent rounded-full cursor-pointer w-12 focus:outline-none
-              focus:ring"
+							transition-colors duration-200 ease-in-out {alumniToggle
+								? 'bg-dd-blue-200'
+								: 'bg-dd-blue-100'}
+							border-2 border-transparent rounded-full cursor-pointer w-12 focus:outline-none
+							focus:ring"
 					>
 						<span
 							aria-hidden="true"
 							class="inline-block w-4 h-4 transition duration-200 ease-in-out
-                transform {alumniToggle
-								? 'translate-x-8'
-								: 'translate-x-0'} bg-white
-                rounded-full shadow"
+								transform {alumniToggle
+									? 'translate-x-8'
+									: 'translate-x-0'} bg-white
+								rounded-full shadow"
 						/>
 					</span>
 				</div>
-				<!-- <div
-          class="p-2 text-sm border-2 rounded-md border-dd-blue hover:shadow-sm"
-        >
-          See past programs
-        </div> -->
 			</div>
 
 			<div
