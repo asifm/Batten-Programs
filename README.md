@@ -1,19 +1,37 @@
+# Routes and Components
+
+A Svelte component is created for each view. The component is then imported into the 'App.svelte' file and the route is defined in the 'App.svelte' file.
+
+The routes currently are:
+- /batten-full
+- /batten-featured
+- /mayo-full
+- /mayo-featured
+- /vc-full
+
+The corresponding components are:
+- BattenFull.svelte
+- BattenFeatured.svelte
+- MayoFull.svelte
+- MayoFeatured.svelte
+- VcFull.svelte
+
+The routes are used to show different views on the Darden website via iframe.
+
 # Branches
 
 ## Review branch
 
-Make changes to the review branch first before merging to main branch.
+Netlify is configured to deploy all branches to a unique URL. For example, a branch named 'review' will be deployed to: <https://review--batten-programs.netlify.app/>
 
-Deployed to: <https://review--batten-programs.netlify.app/>
-
-- <https://review--batten-programs.netlify.app/all>
-- <https://review--batten-programs.netlify.app/upcoming>
+Append the route to see the corresponding page. For example, to see the 'batten-full' page, go to: <https://review--batten-programs.netlify.app/batten-full>
 
 ## Main branch (live/production)
 
 Deployed to: <https://batten-programs.netlify.app/>
 
-- <https://batten-programs.netlify.app/all>
-- <https://batten-programs.netlify.app/upcoming>
+# Changing Months in Frontend
 
-To change what months to show, make changes in the 'data/showMonths' file. The order and selection of months will be reflected in the output.
+Currently changed manually once or twice a year.
+
+To change what months to show, comment out other months in the 'data/showMonths' file. 
