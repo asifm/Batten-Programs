@@ -5,7 +5,7 @@ export const showMonths = [
 	'March',
 	'April',
 	'May',
-	'June',
+	// 'June',
 	// 'July',
 	// 'August',
 	// 'September',
