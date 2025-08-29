@@ -1,6 +1,5 @@
 // The months listed here will be shown on the webpage, in the same order.
 export const showMonths = [
-  'January',
   // 'February',
   // 'March',
   // 'April',
@@ -12,4 +11,5 @@ export const showMonths = [
   "October",
   'November',
   'December',
+  'January',
 ];
